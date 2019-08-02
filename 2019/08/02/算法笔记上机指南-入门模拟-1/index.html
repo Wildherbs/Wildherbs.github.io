@@ -6,15 +6,22 @@
   <meta name="renderer" content="webkit">
   <meta http-equiv="X-UA-Compatible" content="IE=edge">
   <link rel="dns-prefetch" href="http://yoursite.com">
-  <title>邓淦 Blog</title>
+  <title>算法笔记上机指南-入门模拟-1 | 邓淦 Blog</title>
   <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
-  <meta property="og:type" content="website">
-<meta property="og:title" content="邓淦 Blog">
-<meta property="og:url" content="http://yoursite.com/index.html">
+  <meta name="description" content="涉及的内容有：   简单模拟 ✔  查找元素 ✔  图形输出 ✔  日期处理 ✔  进制转换 ✔  字符串处理  PTA网址：https://pintia.cn/problem-sets/994805260223102976/problems/type/7 Basic 1001 1011 1016 1026 1046 1008 1012 1018">
+<meta name="keywords" content="算法,学习,PAT">
+<meta property="og:type" content="article">
+<meta property="og:title" content="算法笔记上机指南-入门模拟-1">
+<meta property="og:url" content="http://yoursite.com/2019/08/02/算法笔记上机指南-入门模拟-1/index.html">
 <meta property="og:site_name" content="邓淦 Blog">
+<meta property="og:description" content="涉及的内容有：   简单模拟 ✔  查找元素 ✔  图形输出 ✔  日期处理 ✔  进制转换 ✔  字符串处理  PTA网址：https://pintia.cn/problem-sets/994805260223102976/problems/type/7 Basic 1001 1011 1016 1026 1046 1008 1012 1018">
 <meta property="og:locale" content="default">
+<meta property="og:image" content="http://yoursite.com/2019/08/02/算法笔记上机指南-入门模拟-1/1.jpg">
+<meta property="og:updated_time" content="2019-08-02T14:33:04.010Z">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:title" content="邓淦 Blog">
+<meta name="twitter:title" content="算法笔记上机指南-入门模拟-1">
+<meta name="twitter:description" content="涉及的内容有：   简单模拟 ✔  查找元素 ✔  图形输出 ✔  日期处理 ✔  进制转换 ✔  字符串处理  PTA网址：https://pintia.cn/problem-sets/994805260223102976/problems/type/7 Basic 1001 1011 1016 1026 1046 1008 1012 1018">
+<meta name="twitter:image" content="http://yoursite.com/2019/08/02/算法笔记上机指南-入门模拟-1/1.jpg">
   
     <link rel="alternative" href="/atom.xml" title="邓淦 Blog" type="application/atom+xml">
   
@@ -130,16 +137,14 @@
             <canvas data-colors="#eaeaea" data-sectionHeight="100" data-contentId="js-content" id="myCanvas1" class="anm-canvas"></canvas>
           </div>
           <div id="js-content" class="content-ll">
-            
-  
-    <article id="post-算法笔记上机指南-入门模拟-1" class="article article-type-post  article-index" itemscope itemprop="blogPost">
+            <article id="post-算法笔记上机指南-入门模拟-1" class="article article-type-post " itemscope itemprop="blogPost">
   <div class="article-inner">
     
       <header class="article-header">
         
   
-    <h1 itemprop="name">
-      <a class="article-title" href="/2019/08/02/算法笔记上机指南-入门模拟-1/">算法笔记上机指南-入门模拟-1</a>
+    <h1 class="article-title" itemprop="name">
+      算法笔记上机指南-入门模拟-1
     </h1>
   
 
@@ -169,11 +174,90 @@
 <p><strong>Basic 1001 1011 1016 1026 1046 1008 1012 1018</strong></p>
 </li>
 </ul>
-        
-          <a class="article-more-a" href="/2019/08/02/算法笔记上机指南-入门模拟-1/#more">more >></a>
-        
+<a id="more"></a>
+
+<hr>
+<h2 id="简单模拟"><a href="#简单模拟" class="headerlink" title="简单模拟"></a>简单模拟</h2><blockquote>
+<p><strong>1001 害死人不偿命的(3n+1)猜想</strong> </p>
+</blockquote>
+<p><strong>分析：</strong> 奇数就乘三加一，偶数就除以二，直到N为1</p>
+<figure class="highlight c++"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">#<span class="meta-keyword">include</span> <span class="meta-string">&lt;iostream&gt;</span></span></span><br><span class="line"><span class="keyword">using</span> <span class="keyword">namespace</span> <span class="built_in">std</span>;</span><br><span class="line"><span class="function"><span class="keyword">int</span> <span class="title">main</span><span class="params">()</span> </span>&#123;</span><br><span class="line">	<span class="keyword">int</span> N, cnt = <span class="number">0</span>;</span><br><span class="line">	<span class="built_in">cin</span> &gt;&gt; N;</span><br><span class="line">	<span class="keyword">while</span>(N != <span class="number">1</span>)</span><br><span class="line">	&#123;</span><br><span class="line">		<span class="keyword">if</span>(N % <span class="number">2</span> == <span class="number">1</span>) N =  (N * <span class="number">3</span> + <span class="number">1</span>) / <span class="number">2</span> ;</span><br><span class="line">		<span class="keyword">else</span> N = N / <span class="number">2</span>;</span><br><span class="line">		cnt++;</span><br><span class="line">	&#125;</span><br><span class="line">	<span class="built_in">cout</span> &lt;&lt; cnt;</span><br><span class="line">	<span class="keyword">return</span> <span class="number">0</span>;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<blockquote>
+<p><strong>1011</strong> <strong>A+B 和 C</strong> </p>
+</blockquote>
+<p><strong>分析</strong>： 由于可能存在A+B之后大于int的最大范围，应该让<strong>A+B的和C设定为longlong类型</strong>，然后相加比较就可以了。</p>
+<figure class="highlight c++"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">#<span class="meta-keyword">include</span> <span class="meta-string">&lt;cstdio&gt;</span></span></span><br><span class="line"><span class="meta">#<span class="meta-keyword">include</span> <span class="meta-string">&lt;cstring&gt;</span></span></span><br><span class="line"><span class="function"><span class="keyword">int</span> <span class="title">main</span> <span class="params">()</span> </span>&#123;</span><br><span class="line">	<span class="keyword">int</span> N;</span><br><span class="line">	<span class="built_in">scanf</span>(<span class="string">"%d"</span>,&amp;N);</span><br><span class="line">	<span class="keyword">long</span> <span class="keyword">long</span> A, B, C;</span><br><span class="line">	<span class="keyword">for</span> (<span class="keyword">int</span> i = <span class="number">0</span>; i &lt; N; i++)</span><br><span class="line">	&#123;</span><br><span class="line">		<span class="built_in">scanf</span>(<span class="string">"%lld %lld %lld"</span>,&amp;A, &amp;B, &amp;C);</span><br><span class="line">		<span class="keyword">if</span>(A + B &gt; C) <span class="built_in">printf</span>(<span class="string">"Case #%d: true\n"</span>, i+<span class="number">1</span>);</span><br><span class="line">		<span class="keyword">else</span> <span class="built_in">printf</span>(<span class="string">"Case #%d: flase\n"</span>, i+<span class="number">1</span>);</span><br><span class="line">	&#125;</span><br><span class="line">	<span class="keyword">return</span> <span class="number">0</span>;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<blockquote>
+<p><strong>B1016 部分A + B</strong></p>
+</blockquote>
+<p><strong>分析</strong>：根据题意A，B的最大范围超过了int，所以也应该用long long类型 ，然后在while循环里分别判断A,B里分别有多少个DA和DB，判断方法从末位往前一个个判断即可。</p>
+<figure class="highlight c++"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">#<span class="meta-keyword">include</span><span class="meta-string">&lt;cstdio&gt;</span></span></span><br><span class="line"><span class="function"><span class="keyword">int</span> <span class="title">main</span><span class="params">()</span> </span>&#123;</span><br><span class="line">	<span class="keyword">long</span> <span class="keyword">long</span> A, B, ansA = <span class="number">0</span>, ansB = <span class="number">0</span>; </span><br><span class="line">	<span class="keyword">int</span> DA, DB;</span><br><span class="line">	<span class="built_in">scanf</span>(<span class="string">"%lld %d %lld %d"</span>,&amp;A, &amp;DA, &amp;B, &amp;DB);</span><br><span class="line">	<span class="keyword">while</span>(A != <span class="number">0</span> || B != <span class="number">0</span>) </span><br><span class="line">	&#123;</span><br><span class="line">		<span class="keyword">if</span>(A % <span class="number">10</span> == DA) ansA = ansA * <span class="number">10</span> + DA;</span><br><span class="line">		<span class="keyword">if</span>(B % <span class="number">10</span> == DB) ansB = ansB * <span class="number">10</span> + DB;</span><br><span class="line">		A /= <span class="number">10</span>;</span><br><span class="line">		B /= <span class="number">10</span>;</span><br><span class="line">	&#125;</span><br><span class="line">	<span class="built_in">printf</span>(<span class="string">"%lld\n"</span>, ansA + ansB);</span><br><span class="line">    reuturn <span class="number">0</span>;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<blockquote>
+<p>*<em>B1026 程序运行时间 *</em> </p>
+</blockquote>
+<p><strong>分析</strong>：在时间问题中，由于60秒等于一分钟，六十分钟等于一小时，所以是可以用<strong>进制转换</strong>的思路来得到时分秒的，当然因为想要得到<strong>时</strong>，<strong>分</strong>，<strong>秒</strong> 这仅仅三位数字也是可以利用常识直接运算得出，需要注意的是题目还要求<strong>四舍五入</strong>，所以应当采用一定的办法满足题目要求，还有容易错的一个地方是当时分秒为个位数时要补0，如<strong>02:03:09</strong>。</p>
+<p>由于进制转换的思路比较具有普适性，所以我就先用它啦~</p>
+<figure class="highlight c++"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">#<span class="meta-keyword">include</span> <span class="meta-string">&lt;stdio.h&gt;</span></span></span><br><span class="line"><span class="function"><span class="keyword">int</span> <span class="title">main</span> <span class="params">()</span> </span>&#123;</span><br><span class="line">	<span class="keyword">int</span> C1, C2, time;</span><br><span class="line">	<span class="keyword">int</span> hh, mm, ss;</span><br><span class="line">	<span class="built_in">scanf</span>(<span class="string">"%d %d"</span>,&amp;C1,&amp;C2);</span><br><span class="line">	time = (C2 - C1 + <span class="number">50</span>) / <span class="number">100</span>; <span class="comment">//对秒进行四舍五入</span></span><br><span class="line">	ss = time % <span class="number">60</span>; <span class="comment">//对“秒位”取余获得秒</span></span><br><span class="line">	time /= <span class="number">60</span>; <span class="comment">//做除法之后的time表示的是以分为单位</span></span><br><span class="line">	mm = time % <span class="number">60</span>;<span class="comment">//对“分位”取余获得分钟</span></span><br><span class="line">	time /= <span class="number">60</span>;<span class="comment">//做除法之后的time表示的是以时为单位</span></span><br><span class="line">	hh = time;</span><br><span class="line">	<span class="built_in">printf</span>(<span class="string">"%02d:%02d:%02d"</span>,hh,mm,ss);</span><br><span class="line">    <span class="keyword">return</span> <span class="number">0</span>;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<p>接下来是简单版</p>
+<figure class="highlight c++"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">#<span class="meta-keyword">include</span> <span class="meta-string">&lt;stdio.h&gt;</span></span></span><br><span class="line"><span class="function"><span class="keyword">int</span> <span class="title">main</span> <span class="params">()</span> </span>&#123;</span><br><span class="line">	<span class="keyword">int</span> C1, C2, time;</span><br><span class="line">	<span class="keyword">int</span> hh, mm, ss;</span><br><span class="line">	<span class="built_in">scanf</span>(<span class="string">"%d %d"</span>,&amp;C1,&amp;C2);</span><br><span class="line">	time = (C2 - C1 + <span class="number">50</span>) / <span class="number">100</span>; <span class="comment">//对秒进行四舍五入</span></span><br><span class="line">	<span class="built_in">printf</span>(<span class="string">"%02d:%02d:%02d"</span>,time / <span class="number">3600</span>,(time % <span class="number">3600</span>) / <span class="number">60</span>,time % <span class="number">60</span>);</span><br><span class="line">    <span class="keyword">return</span> <span class="number">0</span>;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<blockquote>
+<p><strong>B1046</strong>  <strong>划拳</strong></p>
+</blockquote>
+<p><strong>分析：</strong>注意两个人都赢和两个人都输是“不算数“的，让他们继续往下比就可以啦！~</p>
+<figure class="highlight c++"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">#<span class="meta-keyword">include</span> <span class="meta-string">&lt;cstdio&gt;</span></span></span><br><span class="line"><span class="function"><span class="keyword">int</span> <span class="title">main</span> <span class="params">()</span> </span>&#123;</span><br><span class="line">	<span class="keyword">int</span> N;</span><br><span class="line">	<span class="built_in">scanf</span>(<span class="string">"%d"</span>,&amp;N);</span><br><span class="line">	<span class="keyword">int</span> J1, J2, Y1, Y2;</span><br><span class="line">	<span class="keyword">int</span> Jfail = <span class="number">0</span>, Yfial = <span class="number">0</span>;</span><br><span class="line">	<span class="keyword">for</span> (<span class="keyword">int</span> i = <span class="number">0</span>; i &lt; N; i++)</span><br><span class="line">	&#123;</span><br><span class="line">		<span class="built_in">scanf</span>(<span class="string">"%d %d %d %d"</span>,&amp;J1, &amp;J2, &amp;Y1, &amp;Y2);</span><br><span class="line">		<span class="keyword">if</span>(J1 + Y1 == J2 &amp;&amp; J1 + Y1 != Y2) Yfial++; <span class="comment">//乙输</span></span><br><span class="line">		<span class="keyword">else</span> <span class="keyword">if</span>(J1 + Y1 == Y2 &amp;&amp; J1 + Y1 != J2) Jfail++; <span class="comment">//甲输</span></span><br><span class="line">	&#125;</span><br><span class="line">	<span class="built_in">printf</span>(<span class="string">"%d %d\n"</span>, Jfail ,Yfial);</span><br><span class="line">    <span class="keyword">return</span> <span class="number">0</span>;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<blockquote>
+<p><strong>B1008 数组元素循环右移问题</strong></p>
+</blockquote>
+<p><strong>分析：</strong> 这一题需要注意的是题目所给的右移多少位置M，是有可能大于数组个数N的，且因为数组为N个元素向右移动N个得到的数组使它本身，所以在进行实际处理之前应该让 <strong>M % N 取余对M进行修正</strong>得到具有”实际“移动效果的M。完成这题的思路并不唯一，下面是两种方法。</p>
+<p>①倒置法</p>
+<p>  由于有reverse逆置函数可以使用，所以就可以很方便的完成右移问题！</p>
+<p><img src="/2019/08/02/算法笔记上机指南-入门模拟-1/1.jpg" alt="1"></p>
+<figure class="highlight c++"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">#<span class="meta-keyword">include</span> <span class="meta-string">&lt;iostream&gt;</span></span></span><br><span class="line"><span class="meta">#<span class="meta-keyword">include</span> <span class="meta-string">&lt;algorithm&gt;</span></span></span><br><span class="line"><span class="meta">#<span class="meta-keyword">include</span> <span class="meta-string">&lt;vector&gt;</span></span></span><br><span class="line"><span class="keyword">using</span> <span class="keyword">namespace</span> <span class="built_in">std</span>;</span><br><span class="line"><span class="function"><span class="keyword">int</span> <span class="title">main</span> <span class="params">()</span> </span>&#123;</span><br><span class="line">	<span class="keyword">int</span> N , M;</span><br><span class="line">	<span class="keyword">int</span> temp;</span><br><span class="line">	<span class="built_in">vector</span>&lt;<span class="keyword">int</span>&gt; v;</span><br><span class="line">	<span class="built_in">cin</span> &gt;&gt; N &gt;&gt; M;</span><br><span class="line">	<span class="keyword">for</span>(<span class="keyword">int</span> i = <span class="number">0</span>; i &lt; N; i++)</span><br><span class="line">	&#123;</span><br><span class="line">		<span class="built_in">cin</span> &gt;&gt; temp; </span><br><span class="line">		v.push_back(temp);</span><br><span class="line">	&#125;</span><br><span class="line">	M = M % N;</span><br><span class="line">    <span class="comment">//逆置</span></span><br><span class="line">	reverse(v.begin(),v.end());</span><br><span class="line">	reverse(v.begin(),v.begin() + M);</span><br><span class="line">	reverse(v.begin() + M ,v.end());</span><br><span class="line">    <span class="comment">//输出👇</span></span><br><span class="line">	<span class="keyword">for</span> (<span class="keyword">int</span> i = <span class="number">0</span>; i &lt; v.size(); i++)</span><br><span class="line">	&#123;</span><br><span class="line">		<span class="keyword">if</span> (i &gt; <span class="number">0</span>) <span class="built_in">cout</span> &lt;&lt; <span class="string">" "</span>;</span><br><span class="line">		<span class="built_in">cout</span> &lt;&lt; v[i] ;</span><br><span class="line">	&#125;</span><br><span class="line">	<span class="keyword">return</span> <span class="number">0</span>;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<p>② 按位输出</p>
+<p>先输出从index为第n - m 到 n -1的位置，再输出index从0到n - m - 1的位置，也就是先输出右移的那些数字后，再输出剩下的数字来模拟倒置的一个效果。</p>
+<figure class="highlight c++"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">#<span class="meta-keyword">include</span><span class="meta-string">&lt;cstdio&gt;</span></span></span><br><span class="line"><span class="function"><span class="keyword">int</span> <span class="title">main</span> <span class="params">()</span></span>&#123;</span><br><span class="line">    <span class="keyword">int</span> a[<span class="number">110</span>];</span><br><span class="line">    <span class="keyword">int</span> n, m, count = <span class="number">0</span>;<span class="comment">//count控制输出空格</span></span><br><span class="line">    <span class="built_in">scanf</span>(<span class="string">"%d%d"</span>,&amp;n,&amp;m);</span><br><span class="line">    m %= n;<span class="comment">//修正</span></span><br><span class="line">    <span class="keyword">for</span>(<span class="keyword">int</span> i = <span class="number">0</span>; i &lt; n;i++)</span><br><span class="line">        <span class="built_in">scanf</span>(<span class="string">"%d"</span>,&amp;a[i]);</span><br><span class="line">    <span class="comment">//输出👇</span></span><br><span class="line">    <span class="keyword">for</span>(<span class="keyword">int</span> i = n - m; i &lt; n; i++)</span><br><span class="line">    &#123;</span><br><span class="line">        <span class="built_in">printf</span>(<span class="string">"%d"</span>,a[i]);</span><br><span class="line">        count++;</span><br><span class="line">        <span class="keyword">if</span>(count &lt; n)<span class="built_in">printf</span> (<span class="string">" "</span>);</span><br><span class="line">    &#125;</span><br><span class="line">    <span class="keyword">for</span>(<span class="keyword">int</span> i = <span class="number">0</span>;i &lt; n - m; i++)</span><br><span class="line">    &#123;</span><br><span class="line">        <span class="built_in">printf</span>(<span class="string">"%d"</span>,a[i]);</span><br><span class="line">        count++;</span><br><span class="line">        <span class="keyword">if</span>(count &lt; n) <span class="built_in">printf</span>(<span class="string">" "</span>);</span><br><span class="line">    &#125;</span><br><span class="line">    <span class="keyword">return</span> <span class="number">0</span>;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<blockquote>
+<p><strong>B1012 数字分类</strong></p>
+</blockquote>
+<p><strong>思路：</strong> ①利用hash散列将各个输入的数字进行归类在进行处理，这里的散列函数是 *<em>除留取余法 H(key) = key % mod *</em>，</p>
+<p>注意这里给的是一系列的<strong>正整数</strong>，不存在 0 的情况 ，还有某些数字类别不存在，要输出”<strong>N</strong>“</p>
+<figure class="highlight c++"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">#<span class="meta-keyword">include</span> <span class="meta-string">&lt;iostream&gt;</span></span></span><br><span class="line"><span class="meta">#<span class="meta-keyword">include</span> <span class="meta-string">&lt;algorithm&gt;</span></span></span><br><span class="line"><span class="meta">#<span class="meta-keyword">include</span> <span class="meta-string">&lt;vector&gt;</span></span></span><br><span class="line"><span class="meta">#<span class="meta-keyword">include</span> <span class="meta-string">&lt;cstdio&gt;</span></span></span><br><span class="line"><span class="keyword">using</span> <span class="keyword">namespace</span> <span class="built_in">std</span>;</span><br><span class="line"><span class="function"><span class="keyword">int</span> <span class="title">main</span><span class="params">()</span> </span>&#123;</span><br><span class="line">	<span class="keyword">int</span> N,temp,max = <span class="number">-1</span>;</span><br><span class="line">	<span class="built_in">cin</span> &gt;&gt; N;</span><br><span class="line">	<span class="built_in">vector</span>&lt;<span class="keyword">int</span>&gt; v[<span class="number">5</span>];</span><br><span class="line">	<span class="keyword">int</span> A1 = <span class="number">0</span>, A2 = <span class="number">0</span>, A3 = <span class="number">0</span>, A5 = <span class="number">0</span>;</span><br><span class="line">	<span class="keyword">double</span> A4 = <span class="number">0.0</span>; </span><br><span class="line">	<span class="keyword">for</span>(<span class="keyword">int</span> i = <span class="number">0</span>; i &lt; N; i++)</span><br><span class="line">	&#123;</span><br><span class="line">		<span class="built_in">cin</span> &gt;&gt; temp;</span><br><span class="line">		v[temp % <span class="number">5</span>].push_back(temp);</span><br><span class="line">	&#125;</span><br><span class="line">	<span class="comment">//初始输入👆</span></span><br><span class="line">	<span class="comment">//处理</span></span><br><span class="line">	<span class="keyword">for</span>(<span class="keyword">int</span> i = <span class="number">0</span>; i &lt; <span class="number">5</span>; i++)</span><br><span class="line">		<span class="keyword">for</span>(<span class="keyword">int</span> j = <span class="number">0</span> ;j &lt; v[i].size();j++)</span><br><span class="line">		&#123;</span><br><span class="line">			<span class="keyword">if</span>(i == <span class="number">0</span> &amp;&amp; v[<span class="number">0</span>][j] % <span class="number">2</span> == <span class="number">0</span>)  A1 += v[i][j];</span><br><span class="line">			<span class="keyword">if</span>(i == <span class="number">1</span> &amp;&amp; j % <span class="number">2</span> == <span class="number">0</span>) A2 += v[i][j];</span><br><span class="line">			<span class="keyword">if</span>(i == <span class="number">1</span> &amp;&amp; j % <span class="number">2</span> == <span class="number">1</span>) A2 -= v[i][j];</span><br><span class="line">			<span class="keyword">if</span>(i == <span class="number">2</span>) A3 = v[<span class="number">2</span>].size();</span><br><span class="line">			<span class="keyword">if</span>(i == <span class="number">3</span>) A4 += (<span class="keyword">double</span>)v[i][j] / v[i].size();</span><br><span class="line">			<span class="keyword">if</span>(i == <span class="number">4</span> &amp;&amp; v[i][j] &gt; A5) A5 = v[i][j];</span><br><span class="line">		&#125;</span><br><span class="line">	<span class="comment">//输出👇</span></span><br><span class="line">	<span class="keyword">if</span>(A1 == <span class="number">0</span>)) <span class="built_in">printf</span>(<span class="string">"N "</span>); <span class="comment">//if(v[0].size() == 0 || (v[0].size() != 0 &amp;&amp; A1 == 0))也可以</span></span><br><span class="line">		<span class="keyword">else</span> <span class="built_in">printf</span>(<span class="string">"%d "</span>,A1);</span><br><span class="line">	<span class="keyword">if</span>(v[<span class="number">1</span>].size() == <span class="number">0</span>) <span class="built_in">printf</span>(<span class="string">"N "</span>);</span><br><span class="line">		<span class="keyword">else</span> <span class="built_in">printf</span>(<span class="string">"%d "</span>,A2);</span><br><span class="line">	<span class="keyword">if</span>(v[<span class="number">2</span>].size() == <span class="number">0</span>) <span class="built_in">printf</span>(<span class="string">"N "</span>);</span><br><span class="line">		<span class="keyword">else</span> <span class="built_in">printf</span>(<span class="string">"%d "</span>,A3);</span><br><span class="line">	<span class="keyword">if</span>(v[<span class="number">3</span>].size() == <span class="number">0</span>) <span class="built_in">printf</span>(<span class="string">"N "</span>);</span><br><span class="line">		<span class="keyword">else</span> <span class="built_in">printf</span>(<span class="string">"%.1f "</span>,A4);</span><br><span class="line">	<span class="keyword">if</span>(v[<span class="number">4</span>].size() == <span class="number">0</span>) <span class="built_in">printf</span>(<span class="string">"N"</span>);</span><br><span class="line">		<span class="keyword">else</span> <span class="built_in">printf</span>(<span class="string">"%d"</span>,A5);	</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<p>②当然了，也有不用vector的办法，可以直接利用两个数组<strong>count[5]</strong>和<strong>ans[5]</strong>，一个存储五类数字的个数，一类存储五类数字的输出结果。</p>
+<figure class="highlight c++"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br><span class="line">47</span><br><span class="line">48</span><br><span class="line">49</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">#<span class="meta-keyword">include</span> <span class="meta-string">&lt;cstdio&gt;</span></span></span><br><span class="line"><span class="function"><span class="keyword">int</span> <span class="title">main</span> <span class="params">()</span></span>&#123;</span><br><span class="line">    <span class="keyword">int</span> count[<span class="number">5</span>] = &#123;<span class="number">0</span>&#125;;</span><br><span class="line">    <span class="keyword">int</span> ans[<span class="number">5</span>] = &#123;<span class="number">0</span>&#125;;</span><br><span class="line">    <span class="keyword">int</span> n, temp;</span><br><span class="line">    <span class="built_in">scanf</span>(<span class="string">"%d"</span>,&amp;n);</span><br><span class="line">    <span class="keyword">for</span>(<span class="keyword">int</span> i = <span class="number">0</span>; i &lt; n; i++)</span><br><span class="line">    &#123;</span><br><span class="line">        <span class="built_in">scanf</span>(<span class="string">"%d"</span>,&amp;temp);</span><br><span class="line">        <span class="keyword">if</span>(temp % <span class="number">5</span> == <span class="number">0</span>)</span><br><span class="line">        &#123;</span><br><span class="line">            <span class="keyword">if</span>(temp % <span class="number">2</span> == <span class="number">0</span>) ans[<span class="number">0</span>] += temp;</span><br><span class="line">            count[<span class="number">0</span>]++;</span><br><span class="line">        &#125;</span><br><span class="line">        <span class="keyword">else</span> <span class="keyword">if</span>(temp % <span class="number">5</span> == <span class="number">1</span>)</span><br><span class="line">        &#123;</span><br><span class="line">            <span class="keyword">if</span>(count[<span class="number">1</span>] % <span class="number">2</span> == <span class="number">0</span>) ans[<span class="number">1</span>] += temp;</span><br><span class="line">            <span class="keyword">else</span> <span class="keyword">if</span>(count[<span class="number">1</span>] % <span class="number">2</span> == <span class="number">1</span>) ans[<span class="number">1</span>] -= temp;</span><br><span class="line">            count[<span class="number">1</span>]++;</span><br><span class="line">        &#125;</span><br><span class="line">        <span class="keyword">else</span> <span class="keyword">if</span>(temp % <span class="number">5</span> == <span class="number">2</span>)</span><br><span class="line">        &#123;</span><br><span class="line">            count[<span class="number">2</span>]++;</span><br><span class="line">        &#125;</span><br><span class="line">       <span class="keyword">else</span>  <span class="keyword">if</span>(temp % <span class="number">5</span> == <span class="number">3</span>)</span><br><span class="line">        &#123;</span><br><span class="line">            ans[<span class="number">3</span>] += temp;</span><br><span class="line">            count[<span class="number">3</span>]++;</span><br><span class="line">        &#125;</span><br><span class="line">        <span class="keyword">else</span> <span class="keyword">if</span>(temp % <span class="number">5</span> == <span class="number">4</span>)</span><br><span class="line">        &#123;</span><br><span class="line">            <span class="keyword">if</span>(temp &gt; ans[<span class="number">4</span>]) ans[<span class="number">4</span>] = temp;</span><br><span class="line">            count[<span class="number">4</span>]++;</span><br><span class="line">        &#125;</span><br><span class="line">    &#125;</span><br><span class="line">    <span class="comment">//输入👆</span></span><br><span class="line">    <span class="comment">//输出👇</span></span><br><span class="line">    <span class="keyword">if</span>(ans[<span class="number">0</span>] == <span class="number">0</span>) <span class="built_in">printf</span> (<span class="string">"N "</span>);</span><br><span class="line">    <span class="keyword">else</span> <span class="built_in">printf</span>(<span class="string">"%d "</span>,ans[<span class="number">0</span>]);</span><br><span class="line">    <span class="keyword">if</span>(count[<span class="number">1</span>] == <span class="number">0</span>) <span class="built_in">printf</span> (<span class="string">"N "</span>);</span><br><span class="line">    <span class="keyword">else</span> <span class="built_in">printf</span>(<span class="string">"%d "</span>,ans[<span class="number">1</span>]);</span><br><span class="line">    <span class="keyword">if</span>(count[<span class="number">2</span>] == <span class="number">0</span>) <span class="built_in">printf</span> (<span class="string">"N "</span>);</span><br><span class="line">    <span class="keyword">else</span> <span class="built_in">printf</span>(<span class="string">"%d "</span>,count[<span class="number">2</span>]);</span><br><span class="line">    <span class="keyword">if</span>(count[<span class="number">3</span>] == <span class="number">0</span>) <span class="built_in">printf</span> (<span class="string">"N "</span>);</span><br><span class="line">    <span class="keyword">else</span> <span class="built_in">printf</span>(<span class="string">"%.1f "</span>,(<span class="keyword">double</span>)ans[<span class="number">3</span>] / count[<span class="number">3</span>]);</span><br><span class="line">    <span class="keyword">if</span>(count[<span class="number">4</span>] == <span class="number">0</span>) <span class="built_in">printf</span> (<span class="string">"N"</span>);</span><br><span class="line">    <span class="keyword">else</span> <span class="built_in">printf</span>(<span class="string">"%d"</span>,ans[<span class="number">4</span>]);</span><br><span class="line">    <span class="keyword">return</span> <span class="number">0</span>;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+
       
 
+      
+        <div class="page-reward">
+          <a href="javascript:;" class="page-reward-btn tooltip-top">
+            <div class="tooltip tooltip-east">
+            <span class="tooltip-item">
+              赏
+            </span>
+            <span class="tooltip-content">
+              <span class="tooltip-text">
+                <span class="tooltip-inner">
+                  <p class="reward-p"><i class="icon icon-quo-left"></i>我不饿！<i class="icon icon-quo-right"></i></p>
+                  <div class="reward-box">
+                    
+                    
+                  </div>
+                </span>
+              </span>
+            </span>
+          </div>
+          </a>
+        </div>
       
     </div>
     <div class="article-info article-info-index">
@@ -201,16 +285,75 @@
       
 
       
-        <p class="article-more-link">
-          <a class="article-more-a" href="/2019/08/02/算法笔记上机指南-入门模拟-1/">展开全文 >></a>
-        </p>
-      
 
+      
+        
+<div class="share-btn share-icons tooltip-left">
+  <div class="tooltip tooltip-east">
+    <span class="tooltip-item">
+      <a href="javascript:;" class="share-sns share-outer">
+        <i class="icon icon-share"></i>
+      </a>
+    </span>
+    <span class="tooltip-content">
+      <div class="share-wrap">
+        <div class="share-icons">
+          <a class="weibo share-sns" href="javascript:;" data-type="weibo">
+            <i class="icon icon-weibo"></i>
+          </a>
+          <a class="weixin share-sns wxFab" href="javascript:;" data-type="weixin">
+            <i class="icon icon-weixin"></i>
+          </a>
+          <a class="qq share-sns" href="javascript:;" data-type="qq">
+            <i class="icon icon-qq"></i>
+          </a>
+          <a class="douban share-sns" href="javascript:;" data-type="douban">
+            <i class="icon icon-douban"></i>
+          </a>
+          <a class="qzone share-sns" href="javascript:;" data-type="qzone">
+            <i class="icon icon-qzone"></i>
+          </a>
+          <a class="facebook share-sns" href="javascript:;" data-type="facebook">
+            <i class="icon icon-facebook"></i>
+          </a>
+          <a class="twitter share-sns" href="javascript:;" data-type="twitter">
+            <i class="icon icon-twitter"></i>
+          </a>
+          <a class="google share-sns" href="javascript:;" data-type="google">
+            <i class="icon icon-google"></i>
+          </a>
+        </div>
+      </div>
+    </span>
+  </div>
+</div>
+
+<div class="page-modal wx-share js-wx-box">
+    <a class="close js-modal-close" href="javascript:;"><i class="icon icon-close"></i></a>
+    <p>扫一扫，分享到微信</p>
+    <div class="wx-qrcode">
+      <img src="//pan.baidu.com/share/qrcode?url=http://yoursite.com/2019/08/02/算法笔记上机指南-入门模拟-1/" alt="微信分享二维码">
+    </div>
+</div>
+
+<div class="mask js-mask"></div>
       
       <div class="clearfix"></div>
     </div>
   </div>
 </article>
+
+  
+<nav id="article-nav">
+  
+  
+    <a href="/2019/07/29/算法笔记-第四章-算法初步-part3-x/" id="article-nav-older" class="article-nav-link-wrap">
+      <div class="article-nav-title">算法笔记-第四章-算法初步-part3-x</div>
+      <i class="icon-circle-right"></i>
+    </a>
+  
+</nav>
+
 
 <aside class="wrap-side-operation">
     <div class="mod-side-operation">
@@ -230,597 +373,14 @@
 
 
 
-
   
-    <article id="post-算法笔记-第四章-算法初步-part3-x" class="article article-type-post  article-index" itemscope itemprop="blogPost">
-  <div class="article-inner">
-    
-      <header class="article-header">
-        
   
-    <h1 itemprop="name">
-      <a class="article-title" href="/2019/07/29/算法笔记-第四章-算法初步-part3-x/">算法笔记-第四章-算法初步-part3-x</a>
-    </h1>
   
 
-        
-        <a href="/2019/07/29/算法笔记-第四章-算法初步-part3-x/" class="archive-article-date">
-  	<time datetime="2019-07-29T00:41:25.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2019-07-29</time>
-</a>
-        
-      </header>
-    
-    <div class="article-entry" itemprop="articleBody">
-      
-        <p>本章涉及的内容有： </p>
-<ul>
-<li><p>排序 </p>
-</li>
-<li><p>散列 </p>
-</li>
-<li><p>递归 ✔</p>
-<ul>
-<li>分治与递归 ✔</li>
-<li>全排列问题 ✔</li>
-<li>n皇后问题 ✔</li>
-</ul>
-</li>
-<li><p>贪心</p>
-</li>
-<li><p>二分</p>
-</li>
-<li><p>Two Pointers</p>
-</li>
-<li><p>其他高效技巧与算法</p>
-<p>**注：由于这本书的大部分例题都会以PAT呈现，所以我还会附上柳婼的解答，因为她的解答会更清爽一些！也很好理解！并且课本的代码会按自己喜好改动，并非完全一致</p>
-</li>
-</ul>
-        
-          <a class="article-more-a" href="/2019/07/29/算法笔记-第四章-算法初步-part3-x/#more">more >></a>
-        
-      
-
-      
-    </div>
-    <div class="article-info article-info-index">
-      
-      
-	<div class="article-tag tagcloud">
-		<i class="icon-price-tags icon"></i>
-		<ul class="article-tag-list">
-			 
-        		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color3">算法</a>
-        		</li>
-      		 
-        		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color5">算法笔记</a>
-        		</li>
-      		 
-        		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color3">学习</a>
-        		</li>
-      		
-		</ul>
-	</div>
-
-      
-
-      
-        <p class="article-more-link">
-          <a class="article-more-a" href="/2019/07/29/算法笔记-第四章-算法初步-part3-x/">展开全文 >></a>
-        </p>
-      
-
-      
-      <div class="clearfix"></div>
-    </div>
-  </div>
-</article>
-
-<aside class="wrap-side-operation">
-    <div class="mod-side-operation">
-        
-        <div class="jump-container" id="js-jump-container" style="display:none;">
-            <a href="javascript:void(0)" class="mod-side-operation__jump-to-top">
-                <i class="icon-font icon-back"></i>
-            </a>
-            <div id="js-jump-plan-container" class="jump-plan-container" style="top: -11px;">
-                <i class="icon-font icon-plane jump-plane"></i>
-            </div>
-        </div>
-        
-        
-    </div>
-</aside>
-
-
-
-
-  
-    <article id="post-算法笔记-第四章-算法初步-part2-x" class="article article-type-post  article-index" itemscope itemprop="blogPost">
-  <div class="article-inner">
-    
-      <header class="article-header">
-        
-  
-    <h1 itemprop="name">
-      <a class="article-title" href="/2019/07/28/算法笔记-第四章-算法初步-part2-x/">算法笔记-第四章-算法初步-part2-x</a>
-    </h1>
   
 
-        
-        <a href="/2019/07/28/算法笔记-第四章-算法初步-part2-x/" class="archive-article-date">
-  	<time datetime="2019-07-28T02:48:11.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2019-07-28</time>
-</a>
-        
-      </header>
-    
-    <div class="article-entry" itemprop="articleBody">
-      
-        <p>本章涉及的内容有： </p>
-<ul>
-<li><p>排序 </p>
-</li>
-<li><p>散列 ✔</p>
-<ul>
-<li>散列的定义和整数散列 ✔</li>
-<li>字符串 hash 初步 ✔</li>
-</ul>
-</li>
-<li><p>递归</p>
-</li>
-<li><p>贪心</p>
-</li>
-<li><p>二分</p>
-</li>
-<li><p>Two Pointers</p>
-</li>
-<li><p>其他高效技巧与算法</p>
-<p>**注：由于这本书的大部分例题都会以PAT呈现，所以我还会附上柳婼的解答，因为她的解答会更清爽一些！也很好理解！并且课本的代码会按自己喜好改动，并非完全一致</p>
-</li>
-</ul>
-        
-          <a class="article-more-a" href="/2019/07/28/算法笔记-第四章-算法初步-part2-x/#more">more >></a>
-        
-      
-
-      
-    </div>
-    <div class="article-info article-info-index">
-      
-      
-	<div class="article-tag tagcloud">
-		<i class="icon-price-tags icon"></i>
-		<ul class="article-tag-list">
-			 
-        		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color3">算法</a>
-        		</li>
-      		 
-        		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color5">算法笔记</a>
-        		</li>
-      		 
-        		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color3">学习</a>
-        		</li>
-      		
-		</ul>
-	</div>
-
-      
-
-      
-        <p class="article-more-link">
-          <a class="article-more-a" href="/2019/07/28/算法笔记-第四章-算法初步-part2-x/">展开全文 >></a>
-        </p>
-      
-
-      
-      <div class="clearfix"></div>
-    </div>
-  </div>
-</article>
-
-<aside class="wrap-side-operation">
-    <div class="mod-side-operation">
-        
-        <div class="jump-container" id="js-jump-container" style="display:none;">
-            <a href="javascript:void(0)" class="mod-side-operation__jump-to-top">
-                <i class="icon-font icon-back"></i>
-            </a>
-            <div id="js-jump-plan-container" class="jump-plan-container" style="top: -11px;">
-                <i class="icon-font icon-plane jump-plane"></i>
-            </div>
-        </div>
-        
-        
-    </div>
-</aside>
-
-
-
-
-  
-    <article id="post-算法笔记-第四章-算法初步-part1-x" class="article article-type-post  article-index" itemscope itemprop="blogPost">
-  <div class="article-inner">
-    
-      <header class="article-header">
-        
-  
-    <h1 itemprop="name">
-      <a class="article-title" href="/2019/07/25/算法笔记-第四章-算法初步-part1-x/">算法笔记-第四章-算法初步-part1-x</a>
-    </h1>
   
 
-        
-        <a href="/2019/07/25/算法笔记-第四章-算法初步-part1-x/" class="archive-article-date">
-  	<time datetime="2019-07-25T09:07:01.582Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2019-07-25</time>
-</a>
-        
-      </header>
-    
-    <div class="article-entry" itemprop="articleBody">
-      
-        <p>本章涉及的内容有： </p>
-<ul>
-<li><p>排序 ✔</p>
-<ul>
-<li><p>选择排序 ✔</p>
-</li>
-<li><p>插入排序 ✔</p>
-</li>
-<li><p>排序题与sort函数的应用 ✔</p>
-</li>
-</ul>
-</li>
-<li><p>散列</p>
-</li>
-<li><p>递归</p>
-</li>
-<li><p>贪心</p>
-</li>
-<li><p>二分</p>
-</li>
-<li><p>Two Pointers</p>
-</li>
-<li><p>其他高效技巧与算法</p>
-<p><strong>注：由于这本书的大部分例题都会以PAT呈现，所以我还会附上柳婼的解答，因为她的解答会更清爽一些！也很好理解！并且课本的代码会按自己喜好改动，并非完全一致</strong></p>
-</li>
-</ul>
-        
-          <a class="article-more-a" href="/2019/07/25/算法笔记-第四章-算法初步-part1-x/#more">more >></a>
-        
-      
-
-      
-    </div>
-    <div class="article-info article-info-index">
-      
-      
-	<div class="article-tag tagcloud">
-		<i class="icon-price-tags icon"></i>
-		<ul class="article-tag-list">
-			 
-        		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color3">算法</a>
-        		</li>
-      		 
-        		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color5">算法笔记</a>
-        		</li>
-      		 
-        		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color3">学习</a>
-        		</li>
-      		
-		</ul>
-	</div>
-
-      
-
-      
-        <p class="article-more-link">
-          <a class="article-more-a" href="/2019/07/25/算法笔记-第四章-算法初步-part1-x/">展开全文 >></a>
-        </p>
-      
-
-      
-      <div class="clearfix"></div>
-    </div>
-  </div>
-</article>
-
-<aside class="wrap-side-operation">
-    <div class="mod-side-operation">
-        
-        <div class="jump-container" id="js-jump-container" style="display:none;">
-            <a href="javascript:void(0)" class="mod-side-operation__jump-to-top">
-                <i class="icon-font icon-back"></i>
-            </a>
-            <div id="js-jump-plan-container" class="jump-plan-container" style="top: -11px;">
-                <i class="icon-font icon-plane jump-plane"></i>
-            </div>
-        </div>
-        
-        
-    </div>
-</aside>
-
-
-
-
-  
-    <article id="post-算法笔记-第三章-入门模拟-part2-2" class="article article-type-post  article-index" itemscope itemprop="blogPost">
-  <div class="article-inner">
-    
-      <header class="article-header">
-        
-  
-    <h1 itemprop="name">
-      <a class="article-title" href="/2019/07/25/算法笔记-第三章-入门模拟-part2-2/">算法笔记第三章 入门模拟 2/2</a>
-    </h1>
-  
-
-        
-        <a href="/2019/07/25/算法笔记-第三章-入门模拟-part2-2/" class="archive-article-date">
-  	<time datetime="2019-07-25T06:20:07.162Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2019-07-25</time>
-</a>
-        
-      </header>
-    
-    <div class="article-entry" itemprop="articleBody">
-      
-        <p>本章涉及的内容有： </p>
-<ul>
-<li><p>简单模拟 </p>
-</li>
-<li><p>查找元素 </p>
-</li>
-<li><p>图形输出 </p>
-</li>
-<li><p>日期处理 </p>
-</li>
-<li><p>进制转换 （重要）✔</p>
-</li>
-<li><p>字符串处理 （重要）✔</p>
-<p><strong>注：由于这本书的大部分例题都会以PAT呈现，所以我还会附上柳婼的解答，因为她的解答会更清爽一些！也很好理解！并且课本的代码会按自己喜好改动，并非完全一致</strong></p></li></ul>
-        
-          <a class="article-more-a" href="/2019/07/25/算法笔记-第三章-入门模拟-part2-2/#more">more >></a>
-        
-      
-
-      
-    </div>
-    <div class="article-info article-info-index">
-      
-      
-	<div class="article-tag tagcloud">
-		<i class="icon-price-tags icon"></i>
-		<ul class="article-tag-list">
-			 
-        		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color3">算法</a>
-        		</li>
-      		 
-        		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color5">算法笔记</a>
-        		</li>
-      		 
-        		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color3">学习</a>
-        		</li>
-      		
-		</ul>
-	</div>
-
-      
-
-      
-        <p class="article-more-link">
-          <a class="article-more-a" href="/2019/07/25/算法笔记-第三章-入门模拟-part2-2/">展开全文 >></a>
-        </p>
-      
-
-      
-      <div class="clearfix"></div>
-    </div>
-  </div>
-</article>
-
-<aside class="wrap-side-operation">
-    <div class="mod-side-operation">
-        
-        <div class="jump-container" id="js-jump-container" style="display:none;">
-            <a href="javascript:void(0)" class="mod-side-operation__jump-to-top">
-                <i class="icon-font icon-back"></i>
-            </a>
-            <div id="js-jump-plan-container" class="jump-plan-container" style="top: -11px;">
-                <i class="icon-font icon-plane jump-plane"></i>
-            </div>
-        </div>
-        
-        
-    </div>
-</aside>
-
-
-
-
-  
-    <article id="post-算法笔记-第三章-入门模拟-part1-2" class="article article-type-post  article-index" itemscope itemprop="blogPost">
-  <div class="article-inner">
-    
-      <header class="article-header">
-        
-  
-    <h1 itemprop="name">
-      <a class="article-title" href="/2019/07/24/算法笔记-第三章-入门模拟-part1-2/">算法笔记第三章 入门模拟 1/2</a>
-    </h1>
-  
-
-        
-        <a href="/2019/07/24/算法笔记-第三章-入门模拟-part1-2/" class="archive-article-date">
-  	<time datetime="2019-07-24T13:04:58.574Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2019-07-24</time>
-</a>
-        
-      </header>
-    
-    <div class="article-entry" itemprop="articleBody">
-      
-        <p>本章涉及的内容有： </p>
-<ul>
-<li><p>简单模拟 ✔</p>
-</li>
-<li><p>查找元素 ✔</p>
-</li>
-<li><p>图形输出 ✔</p>
-</li>
-<li><p>日期处理 ✔</p>
-</li>
-<li><p>进制转换 （重要）</p>
-</li>
-<li><p>字符串处理 （重要）</p>
-<p><strong>注：由于这本书的大部分例题都会以PAT呈现，所以我还会附上柳婼的解答，因为她的解答会更清爽一些！也很好理解！并且课本的代码会按自己喜好改动，并非完全一致</strong></p></li></ul>
-        
-          <a class="article-more-a" href="/2019/07/24/算法笔记-第三章-入门模拟-part1-2/#more">more >></a>
-        
-      
-
-      
-    </div>
-    <div class="article-info article-info-index">
-      
-      
-	<div class="article-tag tagcloud">
-		<i class="icon-price-tags icon"></i>
-		<ul class="article-tag-list">
-			 
-        		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color3">算法</a>
-        		</li>
-      		 
-        		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color5">算法笔记</a>
-        		</li>
-      		 
-        		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color3">学习</a>
-        		</li>
-      		
-		</ul>
-	</div>
-
-      
-
-      
-        <p class="article-more-link">
-          <a class="article-more-a" href="/2019/07/24/算法笔记-第三章-入门模拟-part1-2/">展开全文 >></a>
-        </p>
-      
-
-      
-      <div class="clearfix"></div>
-    </div>
-  </div>
-</article>
-
-<aside class="wrap-side-operation">
-    <div class="mod-side-operation">
-        
-        <div class="jump-container" id="js-jump-container" style="display:none;">
-            <a href="javascript:void(0)" class="mod-side-operation__jump-to-top">
-                <i class="icon-font icon-back"></i>
-            </a>
-            <div id="js-jump-plan-container" class="jump-plan-container" style="top: -11px;">
-                <i class="icon-font icon-plane jump-plane"></i>
-            </div>
-        </div>
-        
-        
-    </div>
-</aside>
-
-
-
-
-  
-    <article id="post-开-篇" class="article article-type-post  article-index" itemscope itemprop="blogPost">
-  <div class="article-inner">
-    
-      <header class="article-header">
-        
-  
-    <h1 itemprop="name">
-      <a class="article-title" href="/2019/07/23/开-篇/">开篇</a>
-    </h1>
-  
-
-        
-        <a href="/2019/07/23/开-篇/" class="archive-article-date">
-  	<time datetime="2019-07-23T12:04:16.604Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2019-07-23</time>
-</a>
-        
-      </header>
-    
-    <div class="article-entry" itemprop="articleBody">
-      
-        <p>​        你好！感谢你访问我的Blog！博主创建此博客的目的是为了记录从零（点五）开始学习计算机408考研的历程，距离考试还有大概一年半的时间，大家一起加油吧！耶耶耶~！</p>
-<p>​        （如果需要联系我可以发邮件给我！<a href="mailto:dengdeng-80@163.com" target="_blank" rel="noopener">dengdeng-80@163.com</a>）</p>
-
-      
-
-      
-    </div>
-    <div class="article-info article-info-index">
-      
-      
-	<div class="article-tag tagcloud">
-		<i class="icon-price-tags icon"></i>
-		<ul class="article-tag-list">
-			 
-        		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color3">生活</a>
-        		</li>
-      		
-		</ul>
-	</div>
-
-      
-
-      
-        <p class="article-more-link">
-          <a class="article-more-a" href="/2019/07/23/开-篇/">展开全文 >></a>
-        </p>
-      
-
-      
-      <div class="clearfix"></div>
-    </div>
-  </div>
-</article>
-
-<aside class="wrap-side-operation">
-    <div class="mod-side-operation">
-        
-        <div class="jump-container" id="js-jump-container" style="display:none;">
-            <a href="javascript:void(0)" class="mod-side-operation__jump-to-top">
-                <i class="icon-font icon-back"></i>
-            </a>
-            <div id="js-jump-plan-container" class="jump-plan-container" style="top: -11px;">
-                <i class="icon-font icon-plane jump-plane"></i>
-            </div>
-        </div>
-        
-        
-    </div>
-</aside>
-
-
-
-
-  
   
 
 
@@ -843,8 +403,8 @@
     <script>
 	var yiliaConfig = {
 		mathjax: false,
-		isHome: true,
-		isPost: false,
+		isHome: false,
+		isPost: true,
 		isArchive: false,
 		isTag: false,
 		isCategory: false,
