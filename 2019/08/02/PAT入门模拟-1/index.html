@@ -6,22 +6,22 @@
   <meta name="renderer" content="webkit">
   <meta http-equiv="X-UA-Compatible" content="IE=edge">
   <link rel="dns-prefetch" href="http://yoursite.com">
-  <title>PAT入门模拟练习-1 | 邓淦 Blog</title>
+  <title>PAT入门模拟-1 | 邓淦 Blog</title>
   <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
   <meta name="description" content="PTA网址：https://pintia.cn/problem-sets/994805260223102976/problems/type/7 Basic 1001 1011 1016 1026 1046 1008 1012 1018 1001 害死人不偿命的(3n+1)猜想  1011 A+B 和 C  B1016 部分A + B *B1026 程序运行时间 *  B1046  划拳 B1008">
 <meta name="keywords" content="算法,学习,PAT">
 <meta property="og:type" content="article">
-<meta property="og:title" content="PAT入门模拟练习-1">
-<meta property="og:url" content="http://yoursite.com/2019/08/02/PAT入门模拟练习-1/index.html">
+<meta property="og:title" content="PAT入门模拟-1">
+<meta property="og:url" content="http://yoursite.com/2019/08/02/PAT入门模拟-1/index.html">
 <meta property="og:site_name" content="邓淦 Blog">
 <meta property="og:description" content="PTA网址：https://pintia.cn/problem-sets/994805260223102976/problems/type/7 Basic 1001 1011 1016 1026 1046 1008 1012 1018 1001 害死人不偿命的(3n+1)猜想  1011 A+B 和 C  B1016 部分A + B *B1026 程序运行时间 *  B1046  划拳 B1008">
 <meta property="og:locale" content="default">
-<meta property="og:image" content="http://yoursite.com/2019/08/02/PAT入门模拟练习-1/1.jpg">
-<meta property="og:updated_time" content="2019-08-04T07:22:27.765Z">
+<meta property="og:image" content="http://yoursite.com/2019/08/02/PAT入门模拟-1/1.jpg">
+<meta property="og:updated_time" content="2019-08-04T07:51:48.947Z">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:title" content="PAT入门模拟练习-1">
+<meta name="twitter:title" content="PAT入门模拟-1">
 <meta name="twitter:description" content="PTA网址：https://pintia.cn/problem-sets/994805260223102976/problems/type/7 Basic 1001 1011 1016 1026 1046 1008 1012 1018 1001 害死人不偿命的(3n+1)猜想  1011 A+B 和 C  B1016 部分A + B *B1026 程序运行时间 *  B1046  划拳 B1008">
-<meta name="twitter:image" content="http://yoursite.com/2019/08/02/PAT入门模拟练习-1/1.jpg">
+<meta name="twitter:image" content="http://yoursite.com/2019/08/02/PAT入门模拟-1/1.jpg">
   
     <link rel="alternative" href="/atom.xml" title="邓淦 Blog" type="application/atom+xml">
   
@@ -137,19 +137,19 @@
             <canvas data-colors="#eaeaea" data-sectionHeight="100" data-contentId="js-content" id="myCanvas1" class="anm-canvas"></canvas>
           </div>
           <div id="js-content" class="content-ll">
-            <article id="post-PAT入门模拟练习-1" class="article article-type-post " itemscope itemprop="blogPost">
+            <article id="post-PAT入门模拟-1" class="article article-type-post " itemscope itemprop="blogPost">
   <div class="article-inner">
     
       <header class="article-header">
         
   
     <h1 class="article-title" itemprop="name">
-      PAT入门模拟练习-1
+      PAT入门模拟-1
     </h1>
   
 
         
-        <a href="/2019/08/02/PAT入门模拟练习-1/" class="archive-article-date">
+        <a href="/2019/08/02/PAT入门模拟-1/" class="archive-article-date">
   	<time datetime="2019-08-02T11:42:55.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2019-08-02</time>
 </a>
         
@@ -193,7 +193,7 @@
 <h3 id="B1008-数组元素循环右移问题"><a href="#B1008-数组元素循环右移问题" class="headerlink" title="B1008 数组元素循环右移问题"></a><strong>B1008 数组元素循环右移问题</strong></h3><p><strong>🥓分析：</strong> 这一题需要注意的是题目所给的右移多少位置M，是有可能大于数组个数N的，且因为数组为N个元素向右移动N个得到的数组使它本身，所以在进行实际处理之前应该让 <strong>M % N 取余对M进行修正</strong>得到具有”实际“移动效果的M。完成这题的思路并不唯一，下面是两种方法。</p>
 <p>①倒置法</p>
 <p>  由于有reverse逆置函数可以使用，所以就可以很方便的完成右移问题！</p>
-<p><img src="/2019/08/02/PAT入门模拟练习-1/1.jpg" alt="1"></p>
+<p><img src="/2019/08/02/PAT入门模拟-1/1.jpg" alt="1"></p>
 <figure class="highlight c++"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">#<span class="meta-keyword">include</span> <span class="meta-string">&lt;iostream&gt;</span></span></span><br><span class="line"><span class="meta">#<span class="meta-keyword">include</span> <span class="meta-string">&lt;algorithm&gt;</span></span></span><br><span class="line"><span class="meta">#<span class="meta-keyword">include</span> <span class="meta-string">&lt;vector&gt;</span></span></span><br><span class="line"><span class="keyword">using</span> <span class="keyword">namespace</span> <span class="built_in">std</span>;</span><br><span class="line"><span class="function"><span class="keyword">int</span> <span class="title">main</span> <span class="params">()</span> </span>&#123;</span><br><span class="line">	<span class="keyword">int</span> N , M;</span><br><span class="line">	<span class="keyword">int</span> temp;</span><br><span class="line">	<span class="built_in">vector</span>&lt;<span class="keyword">int</span>&gt; v;</span><br><span class="line">	<span class="built_in">cin</span> &gt;&gt; N &gt;&gt; M;</span><br><span class="line">	<span class="keyword">for</span>(<span class="keyword">int</span> i = <span class="number">0</span>; i &lt; N; i++)</span><br><span class="line">	&#123;</span><br><span class="line">		<span class="built_in">cin</span> &gt;&gt; temp; </span><br><span class="line">		v.push_back(temp);</span><br><span class="line">	&#125;</span><br><span class="line">	M = M % N;</span><br><span class="line">    <span class="comment">//逆置</span></span><br><span class="line">	reverse(v.begin(),v.end());</span><br><span class="line">	reverse(v.begin(),v.begin() + M);</span><br><span class="line">	reverse(v.begin() + M ,v.end());</span><br><span class="line">    <span class="comment">//输出👇</span></span><br><span class="line">	<span class="keyword">for</span> (<span class="keyword">int</span> i = <span class="number">0</span>; i &lt; v.size(); i++)</span><br><span class="line">	&#123;</span><br><span class="line">		<span class="keyword">if</span> (i &gt; <span class="number">0</span>) <span class="built_in">cout</span> &lt;&lt; <span class="string">" "</span>;</span><br><span class="line">		<span class="built_in">cout</span> &lt;&lt; v[i] ;</span><br><span class="line">	&#125;</span><br><span class="line">	<span class="keyword">return</span> <span class="number">0</span>;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
 
 <p>② 按位输出</p>
@@ -318,7 +318,7 @@
     <a class="close js-modal-close" href="javascript:;"><i class="icon icon-close"></i></a>
     <p>扫一扫，分享到微信</p>
     <div class="wx-qrcode">
-      <img src="//pan.baidu.com/share/qrcode?url=http://yoursite.com/2019/08/02/PAT入门模拟练习-1/" alt="微信分享二维码">
+      <img src="//pan.baidu.com/share/qrcode?url=http://yoursite.com/2019/08/02/PAT入门模拟-1/" alt="微信分享二维码">
     </div>
 </div>
 
@@ -331,6 +331,15 @@
 
   
 <nav id="article-nav">
+  
+    <a href="/2019/08/04/PAT入门模拟-2/" id="article-nav-newer" class="article-nav-link-wrap">
+      <i class="icon-circle-left"></i>
+      <div class="article-nav-title">
+        
+          PAT入门模拟-2
+        
+      </div>
+    </a>
   
   
     <a href="/2019/07/29/递归/" id="article-nav-older" class="article-nav-link-wrap">
