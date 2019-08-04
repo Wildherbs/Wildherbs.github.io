@@ -6,20 +6,24 @@
   <meta name="renderer" content="webkit">
   <meta http-equiv="X-UA-Compatible" content="IE=edge">
   <link rel="dns-prefetch" href="http://yoursite.com">
-  <title>算法笔记-第四章-算法初步-part2-x | 邓淦 Blog</title>
+  <title>排序 | 邓淦 Blog</title>
   <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
-  <meta name="description" content="本章涉及的内容有：   排序   散列 ✔  散列的定义和整数散列 ✔ 字符串 hash 初步 ✔   递归  贪心  二分  Two Pointers  其他高效技巧与算法 **注：由于这本书的大部分例题都会以PAT呈现，所以我还会附上柳婼的解答，因为她的解答会更清爽一些！也很好理解！并且课本的代码会按自己喜好改动，并非完全一致">
+  <meta name="description" content="本章涉及的内容有：   排序 ✔  选择排序 ✔  插入排序 ✔  排序题与sort函数的应用 ✔    散列  递归  贪心  二分  Two Pointers  其他高效技巧与算法 注：由于这本书的大部分例题都会以PAT呈现，所以我还会附上柳婼的解答，因为她的解答会更清爽一些！也很好理解！并且课本的代码会按自己喜好改动，并非完全一致">
 <meta name="keywords" content="算法,算法笔记,学习">
 <meta property="og:type" content="article">
-<meta property="og:title" content="算法笔记-第四章-算法初步-part2-x">
-<meta property="og:url" content="http://yoursite.com/2019/07/28/算法笔记-第四章-算法初步-part2-x/index.html">
+<meta property="og:title" content="排序">
+<meta property="og:url" content="http://yoursite.com/2019/07/25/排序/index.html">
 <meta property="og:site_name" content="邓淦 Blog">
-<meta property="og:description" content="本章涉及的内容有：   排序   散列 ✔  散列的定义和整数散列 ✔ 字符串 hash 初步 ✔   递归  贪心  二分  Two Pointers  其他高效技巧与算法 **注：由于这本书的大部分例题都会以PAT呈现，所以我还会附上柳婼的解答，因为她的解答会更清爽一些！也很好理解！并且课本的代码会按自己喜好改动，并非完全一致">
+<meta property="og:description" content="本章涉及的内容有：   排序 ✔  选择排序 ✔  插入排序 ✔  排序题与sort函数的应用 ✔    散列  递归  贪心  二分  Two Pointers  其他高效技巧与算法 注：由于这本书的大部分例题都会以PAT呈现，所以我还会附上柳婼的解答，因为她的解答会更清爽一些！也很好理解！并且课本的代码会按自己喜好改动，并非完全一致">
 <meta property="og:locale" content="default">
-<meta property="og:updated_time" content="2019-07-29T00:31:52.680Z">
+<meta property="og:image" content="http://yoursite.com/2019/07/25/排序/1.jpg">
+<meta property="og:image" content="http://yoursite.com/2019/07/25/排序/2.jpg">
+<meta property="og:image" content="http://yoursite.com/2019/07/25/排序/3.jpg">
+<meta property="og:updated_time" content="2019-08-04T04:30:43.482Z">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:title" content="算法笔记-第四章-算法初步-part2-x">
-<meta name="twitter:description" content="本章涉及的内容有：   排序   散列 ✔  散列的定义和整数散列 ✔ 字符串 hash 初步 ✔   递归  贪心  二分  Two Pointers  其他高效技巧与算法 **注：由于这本书的大部分例题都会以PAT呈现，所以我还会附上柳婼的解答，因为她的解答会更清爽一些！也很好理解！并且课本的代码会按自己喜好改动，并非完全一致">
+<meta name="twitter:title" content="排序">
+<meta name="twitter:description" content="本章涉及的内容有：   排序 ✔  选择排序 ✔  插入排序 ✔  排序题与sort函数的应用 ✔    散列  递归  贪心  二分  Two Pointers  其他高效技巧与算法 注：由于这本书的大部分例题都会以PAT呈现，所以我还会附上柳婼的解答，因为她的解答会更清爽一些！也很好理解！并且课本的代码会按自己喜好改动，并非完全一致">
+<meta name="twitter:image" content="http://yoursite.com/2019/07/25/排序/1.jpg">
   
     <link rel="alternative" href="/atom.xml" title="邓淦 Blog" type="application/atom+xml">
   
@@ -135,20 +139,20 @@
             <canvas data-colors="#eaeaea" data-sectionHeight="100" data-contentId="js-content" id="myCanvas1" class="anm-canvas"></canvas>
           </div>
           <div id="js-content" class="content-ll">
-            <article id="post-算法笔记-第四章-算法初步-part2-x" class="article article-type-post " itemscope itemprop="blogPost">
+            <article id="post-排序" class="article article-type-post " itemscope itemprop="blogPost">
   <div class="article-inner">
     
       <header class="article-header">
         
   
     <h1 class="article-title" itemprop="name">
-      算法笔记-第四章-算法初步-part2-x
+      排序
     </h1>
   
 
         
-        <a href="/2019/07/28/算法笔记-第四章-算法初步-part2-x/" class="archive-article-date">
-  	<time datetime="2019-07-28T02:48:11.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2019-07-28</time>
+        <a href="/2019/07/25/排序/" class="archive-article-date">
+  	<time datetime="2019-07-25T09:07:01.582Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2019-07-25</time>
 </a>
         
       </header>
@@ -157,13 +161,17 @@
       
         <p>本章涉及的内容有： </p>
 <ul>
-<li><p>排序 </p>
-</li>
-<li><p>散列 ✔</p>
+<li><p>排序 ✔</p>
 <ul>
-<li>散列的定义和整数散列 ✔</li>
-<li>字符串 hash 初步 ✔</li>
+<li><p>选择排序 ✔</p>
+</li>
+<li><p>插入排序 ✔</p>
+</li>
+<li><p>排序题与sort函数的应用 ✔</p>
+</li>
 </ul>
+</li>
+<li><p>散列</p>
 </li>
 <li><p>递归</p>
 </li>
@@ -174,57 +182,97 @@
 <li><p>Two Pointers</p>
 </li>
 <li><p>其他高效技巧与算法</p>
-<p>**注：由于这本书的大部分例题都会以PAT呈现，所以我还会附上柳婼的解答，因为她的解答会更清爽一些！也很好理解！并且课本的代码会按自己喜好改动，并非完全一致</p>
+<p><strong>注：由于这本书的大部分例题都会以PAT呈现，所以我还会附上柳婼的解答，因为她的解答会更清爽一些！也很好理解！并且课本的代码会按自己喜好改动，并非完全一致</strong></p>
 </li>
 </ul>
-<a id="more"></a>
+  <a id="more"></a>
 
-<h1 id="散列-4-2"><a href="#散列-4-2" class="headerlink" title="散列 4.2"></a>散列 4.2</h1><blockquote>
-<p>散列的定义和整数散列</p>
+<h1 id="排序4-1"><a href="#排序4-1" class="headerlink" title="排序4.1"></a>排序4.1</h1><blockquote>
+<p><strong>选择排序4.1.1</strong></p>
 </blockquote>
-<p><strong>散列</strong>：将元素通过一个函数转换为整数，使得该整数可以（尽量）唯一地表示这个元素。</p>
-<p><em>举个例子</em>：如果我们要在M = {2,3,6,5,8,7,9,11,23,55}中查找是否存在N = {2，5，4，7}这四个元素，</p>
-<p>​        简单的办法就是在 M 中遍历所有的元素，一共遍历四次，寻找是否有元素等于2，5，4，7。这种办法的时间复杂度很明显是跟M和N集合内的数据量有关的，即O（MN) 或者说是<strong>O（n^2^）</strong></p>
-<p>​        还有一个更好的办法就是开辟一个数组<strong>HashTable[100]</strong>（它的初始每一个值都为false）,每在<strong>M</strong>读入一个数据 <strong>X</strong> 后，便让HashTable[X] == true，表示该数据出现过。这样一来，只要再使用一个for循环遍历一次HashTable下标的每一个<strong>N</strong>内元素的值是否为true，就可以一次性全部知道M里是否有和N相等的元素。由于只使用了两个for循环，时间复杂度仅仅为O(N+M)，即<strong>O(n)</strong></p>
-<p>​        但缺点是这样的HashTable数组里会有很多“浪费”的空间，比如从HashTabel[24<del>54]，Hash[56</del>100]的值都是0，如果M = {1，100} 那么我们将会浪费非常多的空间，<strong>但是这没有关系</strong> ，<strong>快！最重要啊朋友们！</strong></p>
-<p>​        <strong>特别强调</strong>：<strong>HashTable数组请在main函数之外的公共区域创建</strong>，因为在main函数内开辟大小超过10^5^的HashTable数组是可能会出错的，还有创建的数组尽量<strong>&lt;=10^7^</strong> 。</p>
-<hr>
-<blockquote>
-<p>散列函数</p>
-</blockquote>
-<p>​        在上面的例子当中，直接把N集合中的元素原值作为了HashTable的下标，在实际运用中，还可以把元素的原值通过一定的变换再作为HashTable的下标，进行这个转换工作的函数就称为<strong>散列函数</strong>。也就是说，如果元素在被转换前是key，那么转换后就是H(key)。<em>一般常用的散列函数就是按key值的原值进行输出，既H(key) = key）</em></p>
-<blockquote>
-<p>除留取余法 H(key) = key % mod </p>
-</blockquote>
-<p>​        这是个也很常用的散列函数，它是指把key值除以 一个mod值后所得到的余数作为hash值（HashTable的下标）</p>
-<p>但是得注意表长Tsize必须满足 <strong>Tsize ≥ mod</strong> ,否则会产生下标越界。</p>
-<blockquote>
-<p>HashTable冲突</p>
-</blockquote>
-<p>​        如果不同key值通过同一个散列函数得到了相同的hash值(<em>比如7 % 5 = 2，17 mod = 2</em>)，在这种情况下，同一个hash下标是不能表示7和17的，这个时候就发生了<strong>冲突</strong></p>
-<p>​        解决冲突的方法有<strong>线性探查法，平方探查法，链地址法</strong>，但是如果真的发生的冲突，一般是不需要我们自己实现解决冲突的方法的，只需要使用C++标准库模板的map来直接使用hash的功能。</p>
-<hr>
-<blockquote>
-<p>字符串散列</p>
-</blockquote>
-<p>​        如果key元素并非整数，这样的话就需要设计其他的散列函数使得每一个字符都有其对应唯一的hash值。</p>
-<p>​        下面用一个例子引出我们所要使用的散列函数</p>
-<p>​        <strong>例：如何用一个整数唯一表达一个二维平面的点</strong> </p>
-<p>​        我们假设一个整数点的坐标是<strong>(x，y)</strong>，其中<strong>0≤x，y≤Range</strong> ，我们令散列函数是 <strong>H(P) = x * Range + y</strong> , 这样一来，在数据范围内任意两个不同整数点P1,P2 ，H(P1) 都不会等于H(P2), 既我们可以使用这一个散列函数来<strong>唯一表示</strong>Range范围内的任一点，并且得到每一个点的hash值后，因为这时候的hash值已经是整数，所以我们可以再用其他的散列函数进一步映射来缩小得到的hash值。</p>
-<p>​        <strong>类似的</strong>，若是是字符串的话，只要想办法把一个字符串表示为唯一的整数就可以了。</p>
-<p>​        我们假设字符串只是从<strong>A~Z</strong>的大写字母，并且使用<strong>0~25</strong>来唯一表示A~Z的每一个字母，那如何表示一个都是大写字母的字符串呢，不难想到的办法就是利用<strong>进制转换</strong>，在上一章中我们知道任意一个P进制的数字都有办法唯一的表示为一个十进制数，所以我们可以把一个全是大写字母的字符串看成是一个<strong>26进制</strong>的“数字”，这样的话就可以利用进制转换把这个字符串唯一转换为一个10进制数。</p>
-<figure class="highlight c++"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">//下面课本里利用进制转换来变换字符串的代码</span></span><br><span class="line"><span class="function"><span class="keyword">int</span> <span class="title">Hashfunc</span><span class="params">(<span class="keyword">char</span> S[],<span class="keyword">int</span> len)</span></span></span><br><span class="line"><span class="function"></span>&#123;</span><br><span class="line">    <span class="keyword">int</span> id = <span class="number">0</span>;</span><br><span class="line">    <span class="keyword">for</span>(<span class="keyword">int</span> i = <span class="number">0</span>; i &lt; len ;i++) <span class="comment">//将26进制转换为10进制</span></span><br><span class="line">        id = id * <span class="number">26</span> + (S[i] - <span class="string">'A'</span>); </span><br><span class="line">    <span class="keyword">return</span> id;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
-
-<p>🍁或者可以按照P进制转换为10进制的标准格式来书写</p>
-<figure class="highlight c++"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">//下面也是利用进制转换来变换字符串的代码</span></span><br><span class="line"><span class="function"><span class="keyword">int</span> <span class="title">Hashfunc</span><span class="params">(<span class="keyword">char</span> S[],<span class="keyword">int</span> len)</span></span></span><br><span class="line"><span class="function"></span>&#123;</span><br><span class="line">    <span class="keyword">int</span> id = <span class="number">0</span>,product = <span class="number">1</span>,ans = <span class="number">0</span>;</span><br><span class="line">    <span class="keyword">for</span>(<span class="keyword">int</span> i = len - <span class="number">1</span>; i &gt;= <span class="number">0</span> ; i--)<span class="comment">//将26进制转换为10进制</span></span><br><span class="line">    &#123;</span><br><span class="line">        id = (S[i] - <span class="string">'A'</span>) * product;</span><br><span class="line">        ans += id;</span><br><span class="line">        product *= <span class="number">26</span>;</span><br><span class="line">    &#125;    </span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<p>每次从<strong>[i,n</strong>]中选出<strong>最小</strong>的值，与<strong>A[i]交换</strong>（先看算法逻辑【在下面】再看图）</p>
+<p><img src="/2019/07/25/排序/1.jpg" alt="耶耶耶~"></p>
+<p>​    </p>
+<p>​    <strong>算法逻辑</strong>：总共需要进行<strong>n趟</strong>（1≤i≤n）操作，每趟操作选出未排序部分<strong>[i,n]</strong>中<strong>最小</strong>的元素，令其与<strong>A[i]</strong>进行<strong>交换</strong></p>
+<figure class="highlight c++"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">//实现代码如下 </span></span><br><span class="line">注意：下标从<span class="number">1</span>~n</span><br><span class="line"><span class="function"><span class="keyword">void</span> <span class="title">selectSort</span> <span class="params">()</span> </span>&#123;</span><br><span class="line">	<span class="keyword">for</span>(<span class="keyword">int</span> i = <span class="number">1</span>; i &lt;= n; j++)<span class="comment">//进行n趟操作</span></span><br><span class="line">    &#123;</span><br><span class="line">        <span class="keyword">int</span> k = i; <span class="comment">//每趟操作都先假设未排序的第一个元素为最小的</span></span><br><span class="line">        <span class="keyword">for</span>(<span class="keyword">int</span> j = i; j &lt;= n; j++) <span class="comment">//选出[i,n]中最小的元素，其下标为k</span></span><br><span class="line">            <span class="keyword">if</span>(A[j] &lt;A[k]) k = j;</span><br><span class="line">        <span class="comment">//👆找了一轮内最小的元素</span></span><br><span class="line">        <span class="comment">//👇交换</span></span><br><span class="line">        <span class="keyword">int</span> temp = A[i];</span><br><span class="line">        A[i] = A[k];</span><br><span class="line">        A[k] = temp;</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
 
 <hr>
-<p><em>如果出现了小写字母或者是数字，那么方法也是类似的，只要把对应的进制扩大，然后再对每一个字符是大写字母，小写字母还是数字进行判断后再进行进制转换即可，可以参照下面的一个例子</em></p>
-<figure class="highlight c++"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br></pre></td><td class="code"><pre><span class="line"> <span class="comment">//有大写和小写的字符串</span></span><br><span class="line"><span class="function"><span class="keyword">int</span> <span class="title">Hashfunc</span><span class="params">(<span class="keyword">char</span> S[],<span class="keyword">int</span> len)</span> </span></span><br><span class="line"><span class="function"></span>&#123;</span><br><span class="line">    <span class="keyword">int</span> id = <span class="number">0</span>;</span><br><span class="line">    <span class="keyword">for</span>(<span class="keyword">int</span> i = <span class="number">0</span>; i &lt; lem ;i++)</span><br><span class="line">    &#123;</span><br><span class="line">        <span class="keyword">if</span>(S[i] &gt;= <span class="string">'A'</span> &amp;&amp; S[i] &lt;= <span class="string">'Z'</span>)</span><br><span class="line">            id = id * <span class="number">52</span> + (S[i] - <span class="string">'A'</span>);</span><br><span class="line">        <span class="keyword">if</span>(S[i] &gt;= <span class="string">'a'</span> &amp;&amp; S[i] &lt;= <span class="string">'z'</span>)</span><br><span class="line">            id = id * <span class="number">52</span> + (S[i] - <span class="string">'a'</span>) + <span class="number">26</span>;</span><br><span class="line">    &#125;</span><br><span class="line">    <span class="keyword">return</span> <span class="number">0</span>;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<blockquote>
+<p><strong>插入排序4.1.2</strong></p>
+</blockquote>
+<p>序列B的下标依旧是从<strong>1~n</strong> ，每次取出未排序部分的第一个元素，比较后插入有序序列（先看算法逻辑再看图）</p>
+<p><img src="/2019/07/25/排序/2.jpg" alt="耶耶耶~"></p>
+<p><strong>算法逻辑</strong>：总共需要进行<strong>n-1</strong>趟操作，因为一开始我们可以把待排序序列的第一个元素当作有序序列的第一个元素，这样一来，循环就可以从<strong>i = 2</strong>开始遍历到<strong>i = n</strong> ；每遍历一个元素，便先将元素暂时存储到<strong>temp</strong>中，再而从该元素的当前位置<strong>B[ j ]</strong>(该元素位置前的所有元素是已经排序好的有序序列）开始往前（<strong>j–</strong>）逐一比较，如果被比较的元素<strong>较大</strong>，则被比较的元素<strong>往后挪一位</strong>，当遇到比temp小的元素或者temp已经和所有的有序序列元素比较完毕后，跳出循环，此时的有序序列中所有比temp大的元素都被向后挪了一位，将<strong>temp插入</strong>当前<strong>B[ j ]</strong>的位置就可以完成此次temp的排序。</p>
+<figure class="highlight c++"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">//课本代码</span></span><br><span class="line"><span class="keyword">int</span> B[maxn],n;<span class="comment">//n为元素个数，数组下标为1~n</span></span><br><span class="line"><span class="function"><span class="keyword">void</span> <span class="title">insertSort</span><span class="params">()</span></span></span><br><span class="line"><span class="function"></span>&#123;</span><br><span class="line">    <span class="keyword">for</span> (<span class="keyword">int</span> i = <span class="number">2</span>; i &lt;= n; i++)</span><br><span class="line">    &#123;</span><br><span class="line">        <span class="keyword">int</span> temp = B[i], j = i;<span class="comment">//temp临时存放B[i]， j从i开始往前枚举比较</span></span><br><span class="line">        <span class="keyword">while</span>(j &gt; <span class="number">1</span> &amp;&amp; B[j - <span class="number">1</span>] &gt; temp)<span class="comment">//只要不比完或前一个元素比temp大 循环就继续</span></span><br><span class="line">        &#123;</span><br><span class="line">            B[j] = B[j - <span class="number">1</span>]; <span class="comment">//比temp大的元素往后挪一位</span></span><br><span class="line">            j--；</span><br><span class="line">        &#125;</span><br><span class="line">        B[j] = temp; <span class="comment">//插入temp</span></span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
 
 <hr>
-<p>下面看最后一个问题，给出N个字符串(每个字符串恰好由三个大写字母组成)，再给出M个查询字符串（也由三个大写字母组成），问每个查询字符串在N个字符串中出现的次数。</p>
-<figure class="highlight c++"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">#<span class="meta-keyword">include</span> <span class="meta-string">&lt;cstdio&gt;</span></span></span><br><span class="line"><span class="keyword">const</span> <span class="keyword">int</span> maxn = <span class="number">100</span>;<span class="comment">//给出的字符串不超过100个</span></span><br><span class="line"><span class="keyword">char</span> S[maxn][<span class="number">5</span>],temp[<span class="number">5</span>];</span><br><span class="line"><span class="keyword">int</span> hashTable[<span class="number">26</span>*<span class="number">26</span>*<span class="number">26</span>+<span class="number">10</span>]; <span class="comment">//26进制转化为最大10进制的整数是26^位数-1，即（26^3 - 1）</span></span><br><span class="line"><span class="function"><span class="keyword">int</span> <span class="title">hashFunc</span><span class="params">(<span class="keyword">char</span> S[],<span class="keyword">int</span> len)</span> <span class="comment">//散列函数</span></span></span><br><span class="line"><span class="function"></span>&#123;</span><br><span class="line">    <span class="keyword">int</span> id = <span class="number">0</span>;</span><br><span class="line">    <span class="keyword">for</span>(<span class="keyword">int</span> i = <span class="number">0</span>; i &lt; len;i++)</span><br><span class="line">        id = id * <span class="number">26</span> + (S[i] - <span class="string">'A'</span>);</span><br><span class="line">    <span class="keyword">return</span> id;</span><br><span class="line">&#125;</span><br><span class="line"><span class="function"><span class="keyword">int</span> <span class="title">main</span> <span class="params">()</span> </span>&#123;</span><br><span class="line">    <span class="keyword">int</span> n,m;</span><br><span class="line">    <span class="built_in">scanf</span>(<span class="string">"%d%d"</span>,&amp;n,&amp;m);</span><br><span class="line">    <span class="keyword">for</span>(<span class="keyword">int</span> i = <span class="number">0</span>; i &lt; n; i++)</span><br><span class="line">    &#123;</span><br><span class="line">        <span class="built_in">scanf</span>(<span class="string">"%s"</span>,S[i]);</span><br><span class="line">    	<span class="keyword">int</span> id = hashFunc(S[i],<span class="number">3</span>); <span class="comment">//计算N个字符串的Hash值</span></span><br><span class="line">        HashTable[id]++;<span class="comment">//该字符串出现的次数+1</span></span><br><span class="line">    &#125;</span><br><span class="line">    <span class="keyword">for</span>(<span class="keyword">int</span> i = <span class="number">0</span>; i &lt; m; i++)</span><br><span class="line">    &#123;</span><br><span class="line">        <span class="built_in">scanf</span>(<span class="string">"%s"</span>,temp);</span><br><span class="line">        <span class="keyword">int</span> id = hashFunc(temp,<span class="number">3</span>);<span class="comment">//计算查询字符串对应的Hash值</span></span><br><span class="line">        <span class="built_in">printf</span>(<span class="string">"%d\n"</span>,hashTable[id]);<span class="comment">//输出查询字符串出现的字数</span></span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<blockquote>
+<p><strong>排序题与sort函数的应用</strong></p>
+</blockquote>
+<p>​        在实际的PTA考试里是不需要我们手打排序算法的 = =，只需要使用C++的sort函数对序列进行排序，而且使用它大概率<strong>比你手写</strong>的排序算法<strong>快</strong>hahah。（sort的简单使用方法看看下面的例子就差不多会了！）</p>
+<p><strong>例1：初见sort函数</strong>：</p>
+<figure class="highlight c++"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">#<span class="meta-keyword">include</span> <span class="meta-string">&lt;algorithm&gt;</span></span></span><br><span class="line"><span class="keyword">using</span> <span class="keyword">namespace</span> <span class="built_in">std</span>;</span><br><span class="line"><span class="keyword">int</span> a[<span class="number">3</span>] = &#123;<span class="number">5</span>,<span class="number">7</span>,<span class="number">2</span>&#125;;</span><br><span class="line">sort(a,a+<span class="number">3</span>);<span class="comment">//a[0] ~ a[2] 从小到大排序</span></span><br></pre></td></tr></table></figure>
+
+<p><strong>sort(首元素地址，尾元素的下一个地址，cmp函数)</strong>  其中cmp函数若不填则是从小到大排序</p>
+<p><strong>例2：字符串的字典序</strong></p>
+<p>①分数高的排前面</p>
+<p>②分数相同名字字典序小的排前面</p>
+<figure class="highlight c++"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line"><span class="function"><span class="keyword">bool</span> <span class="title">cmp</span> <span class="params">(Student a, Student b)</span></span></span><br><span class="line"><span class="function"><span class="comment">//sort函数中最重要的就是cmp函数的书写</span></span></span><br><span class="line"><span class="function"><span class="comment">//可以多体验几道题</span></span></span><br><span class="line"><span class="function"></span>&#123;</span><br><span class="line">    <span class="keyword">if</span>(a.score != b.score) <span class="keyword">return</span> a.score &gt; b.score; <span class="comment">//分数不同则高的在前</span></span><br><span class="line">    <span class="keyword">else</span> <span class="keyword">return</span> <span class="built_in">strcmp</span> (a.name,b.name) &lt; <span class="number">0</span>;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<p><strong>strcmp() ?!</strong></p>
+<ul>
+<li>利用char数组存储的字符串可以利用strcmp()函数进行比较字典序大小</li>
+<li>若strcmp(str1,str2)<ul>
+<li><strong>str1</strong>字典序<strong>小于str2</strong>时，返回一个<strong>负数</strong></li>
+<li><strong>str1</strong>字典序<strong>大于str2</strong>时，返回一个<strong>正数</strong></li>
+<li><strong>str1</strong>字典序<strong>等于str2</strong>时，返回<strong>零</strong></li>
+</ul>
+</li>
+</ul>
+<p>所以例2中strcmp(a.name,b.name) &lt;0 代表在分数相等的情况下，当a的字典序小于b的时将return true，即按字典序从小到大排列。</p>
+<p><strong>例3：分数相同，排名相同</strong></p>
+<p>①（记录排名再输出）</p>
+<p>实现逻辑：先令数组的<strong>第一个个体</strong>（index = 0）<strong>排名为1</strong>，然后从第二个个体开始遍历所有的个体，如果当前个体和上一个个体<strong>分数相同</strong>，则该个体的排名也等于上一个个体的排名，如果<strong>分数不相同</strong>，则当前个体的排名等于当前的下标<strong>index + 1</strong></p>
+<figure class="highlight c++"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line">stu[<span class="number">0</span>].r = <span class="number">1</span>;<span class="comment">//第一个元素排名为1</span></span><br><span class="line"><span class="keyword">for</span>(<span class="keyword">int</span> i = <span class="number">1</span>; i &lt; n ;i++)</span><br><span class="line">&#123;</span><br><span class="line">    <span class="keyword">if</span>(stu[i].score == stu[i<span class="number">-1</span>].score) stu[i].r = stu[i - <span class="number">1</span>].r;</span><br><span class="line">    <span class="keyword">else</span> stu[i].r = i + <span class="number">1</span>;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<p>②(直接输出排名)</p>
+<p>实现逻辑：和上面差不多啦<del>~</del></p>
+<figure class="highlight c++"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">int</span> r = <span class="number">1</span>;</span><br><span class="line"><span class="keyword">for</span>(<span class="keyword">int</span> i = <span class="number">0</span>;i &lt; n;i++)</span><br><span class="line">&#123;</span><br><span class="line">	<span class="keyword">if</span>( i &gt; <span class="number">0</span> &amp;&amp; stu[i].score != stu[i - <span class="number">1</span>].score) r = i + <span class="number">1</span>;</span><br><span class="line">    <span class="built_in">printf</span>(<span class="string">"%d"</span>,r);</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<hr>
+<p>做个题：</p>
+<blockquote>
+<h2 id="【PAT-A1025】PAT-ranking"><a href="#【PAT-A1025】PAT-ranking" class="headerlink" title="【PAT A1025】PAT ranking"></a>【PAT A1025】PAT ranking</h2></blockquote>
+<p>Programming Ability Test (PAT) is organized by the College of Computer Science and Technology of Zhejiang University. Each test is supposed to run simultaneously in several places, and the ranklists will be merged immediately after the test. Now it is your job to write a program to correctly merge all the ranklists and generate the final rank.</p>
+<p><strong>Input Specification:</strong></p>
+<p>Each input file contains one test case. For each case, the first line contains a positive number <em>N</em> (≤100), the number of test locations. Then <em>N</em>ranklists follow, each starts with a line containing a positive integer <em>K</em> (≤300), the number of testees, and then <em>K</em> lines containing the registration number (a 13-digit number) and the total score of each testee. All the numbers in a line are separated by a space.</p>
+<p> <strong>Output Specification:</strong></p>
+<p>For each test case, first print in one line the total number of testees. Then print the final ranklist in the following format:</p>
+<figure class="highlight nginx"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="attribute">registration_number</span> final_rank location_number local_rank</span><br></pre></td></tr></table></figure>
+
+<p>The locations are numbered from 1 to <em>N</em>. The output must be sorted in nondecreasing order of the final ranks. The testees with the same score must have the same rank, and the output must be sorted in nondecreasing order of their registration numbers.</p>
+<p><strong>Sample Input:</strong></p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br></pre></td><td class="code"><pre><span class="line">2</span><br><span class="line">5</span><br><span class="line">1234567890001 95</span><br><span class="line">1234567890005 100</span><br><span class="line">1234567890003 95</span><br><span class="line">1234567890002 77</span><br><span class="line">1234567890004 85</span><br><span class="line">4</span><br><span class="line">1234567890013 65</span><br><span class="line">1234567890011 25</span><br><span class="line">1234567890014 100</span><br><span class="line">1234567890012 85</span><br></pre></td></tr></table></figure>
+
+<p><strong>Sample Output:</strong></p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br></pre></td><td class="code"><pre><span class="line">9</span><br><span class="line">1234567890005 1 1 1</span><br><span class="line">1234567890014 1 2 1</span><br><span class="line">1234567890001 3 1 2</span><br><span class="line">1234567890003 3 1 2</span><br><span class="line">1234567890004 5 1 4</span><br><span class="line">1234567890012 5 2 2</span><br><span class="line">1234567890002 7 1 5</span><br><span class="line">1234567890013 8 2 3</span><br><span class="line">1234567890011 9 2 4</span><br></pre></td></tr></table></figure>
+
+<p><strong>题目大意：</strong> 有<strong>n</strong>个PAT考场，每个考场<strong>k</strong>人，给你每个人准考证号 ，让你按考生的分数从高到低排序，并按顺序输出所有考生的准考证号，排名，考场号，考场排名，按每个人的分数升序输出，若分数相同则排名相同，排名相同时按准考号从小到大排列。</p>
+<p><strong>分析：</strong>①按各个考场读入各考生的信息，使用student结构体储存考生的准考证号，排名，考场号，考场内的排名 ,</p>
+<p>读入完毕后对该考场的考生进行排序。</p>
+<p>②对所有考生进行排序 </p>
+<p>③按顺序计算总排名，并输出。</p>
+<p><strong>实现细节：</strong> 对同一考场的考生单独排序的方法：先定义一个int变量<strong>num = 0</strong>，每读入一个考生就让<strong>num++</strong> ，</p>
+<p>若一个考场有k个考生，则这个考场所有考生的下标的就是 <strong>[num - k , num)</strong> ,然后再使用sort函数就可以了</p>
+<blockquote>
+<p>下面是关于为什么是 <strong>[num - k , num)</strong> 的解释。</p>
+<p><strong>再次注意num是考生读入完毕后再加一</strong></p>
+</blockquote>
+<p><img src="/2019/07/25/排序/3.jpg" alt="耶耶耶~"></p>
+<figure class="highlight c++"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br><span class="line">47</span><br><span class="line">48</span><br><span class="line">49</span><br><span class="line">50</span><br><span class="line">51</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">// 课本代码</span></span><br><span class="line"><span class="meta">#<span class="meta-keyword">include</span> <span class="meta-string">&lt;cstdio&gt;</span></span></span><br><span class="line"><span class="meta">#<span class="meta-keyword">include</span> <span class="meta-string">&lt;cstring&gt;</span></span></span><br><span class="line"><span class="meta">#<span class="meta-keyword">include</span> <span class="meta-string">&lt;algorithm&gt;</span></span></span><br><span class="line"><span class="keyword">using</span> <span class="keyword">namespace</span> <span class="built_in">std</span>;</span><br><span class="line"><span class="class"><span class="keyword">struct</span> <span class="title">student</span> &#123;</span></span><br><span class="line">    <span class="keyword">char</span> id[<span class="number">15</span>]; <span class="comment">//准考证号</span></span><br><span class="line">    <span class="keyword">int</span>  score; <span class="comment">//分数</span></span><br><span class="line">    <span class="keyword">int</span>  location_number; <span class="comment">//考场号</span></span><br><span class="line">    <span class="keyword">int</span>  local_rank; <span class="comment">//考场内排名</span></span><br><span class="line">&#125;stu[<span class="number">30010</span>];</span><br><span class="line"><span class="function"><span class="keyword">bool</span> <span class="title">cmp</span> <span class="params">(student a, student b)</span></span>&#123;</span><br><span class="line">    <span class="keyword">if</span>(a.score != b.score) <span class="keyword">return</span> a.score &gt; b.score ; <span class="comment">//按分数从高到低排列</span></span><br><span class="line">    <span class="keyword">else</span> <span class="keyword">return</span> <span class="built_in">strcmp</span>(a.id,b.id) &lt; <span class="number">0</span>;<span class="comment">//分数相同，id小的排前面</span></span><br><span class="line">&#125;</span><br><span class="line"><span class="function"><span class="keyword">int</span> <span class="title">main</span> <span class="params">()</span></span>&#123;</span><br><span class="line"><span class="comment">// n 考场数 k为一个考场的人数 num为总考生数</span></span><br><span class="line">	<span class="keyword">int</span> n, k, num = <span class="number">0</span>;</span><br><span class="line">    <span class="built_in">scanf</span>(<span class="string">"%d"</span>,&amp;n);</span><br><span class="line">    <span class="keyword">for</span>(<span class="keyword">int</span> i = <span class="number">1</span>; i &lt;= n; i++)</span><br><span class="line">    &#123;</span><br><span class="line">        <span class="built_in">scanf</span>(<span class="string">"%d"</span>,&amp;k); </span><br><span class="line">        <span class="keyword">for</span>(<span class="keyword">int</span> j = <span class="number">0</span>; j &lt; k ;j++) <span class="comment">//读取该考场的考生</span></span><br><span class="line">        &#123;</span><br><span class="line">            <span class="built_in">scanf</span>(<span class="string">"%s %d"</span>,&amp;stu[num].id,&amp;stu[num].score);</span><br><span class="line">            stu[num].location_number = i;</span><br><span class="line">            num++;</span><br><span class="line">        &#125;</span><br><span class="line">        sort(stu + (num - k), stu + num, cmp); <span class="comment">//对该考场的考生进行排序</span></span><br><span class="line">        stu[num - k].local_rank = <span class="number">1</span>;<span class="comment">//该考场的第一个考试的考场排名为1</span></span><br><span class="line">        <span class="keyword">for</span>(<span class="keyword">int</span> j = (num - k) + <span class="number">1</span>; j &lt; num; j++)<span class="comment">//从该考场的第二个考生开始遍历</span></span><br><span class="line">        &#123;</span><br><span class="line">            <span class="comment">//分数相同，local_rank也相同</span></span><br><span class="line">            <span class="keyword">if</span>(stu[j].score == stu[j<span class="number">-1</span>].score) stu[j].local_rank = stu[j<span class="number">-1</span>].local_rank;</span><br><span class="line">            <span class="keyword">else</span> stu[j].local_rank =  j - (num - k) + <span class="number">1</span>;</span><br><span class="line">            <span class="comment">//j是这个考生的下标，num - k是这个考场第一个考生的下标，为什么加一可以参考例三</span></span><br><span class="line">        &#125;</span><br><span class="line">    &#125;</span><br><span class="line">    <span class="comment">//👆student小卡片读入完毕</span></span><br><span class="line">    <span class="comment">//👇输出</span></span><br><span class="line">    <span class="built_in">printf</span>(<span class="string">"%d\n"</span>,num);</span><br><span class="line">    sort(stu, stu + num,cmp); <span class="comment">//把全部考生按分数全部重新排序</span></span><br><span class="line">    <span class="keyword">int</span> r = <span class="number">1</span>; <span class="comment">//总排名的第一位</span></span><br><span class="line">    <span class="keyword">for</span>(<span class="keyword">int</span> i = <span class="number">0</span> ; i &lt; num; i++)</span><br><span class="line">    &#123;</span><br><span class="line">        <span class="keyword">if</span>(i &gt; <span class="number">0</span> &amp;&amp; stu[i].score != stu[i - <span class="number">1</span>].score) r = i + <span class="number">1</span>;</span><br><span class="line">        <span class="built_in">printf</span>(<span class="string">"%s "</span>,stu[i].id);</span><br><span class="line">        <span class="built_in">printf</span>(<span class="string">"%d %d %d\n"</span>, r, stu[i].location_number,stu[i].local_rank);</span><br><span class="line">    &#125;</span><br><span class="line">    <span class="keyword">return</span> <span class="number">0</span>;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<p>💒柳婼的解答思路基本和课本相同，最大的不同是她在对每一个考场的考生进行操作的时候，使用了vector单独对每一个考场的考生进行操作，操作完毕之后再把他们放入总数组fin，这样就可以避免课本的解答中一开始就让所有的考生都在同一个数组中进行处理，进而出现(num - k)，j - (num - k) + 1这种令人费解的运算。（但还是推荐先看课本的解答后再看柳婼的解答，他们最大的区别就是是否使用了C++的标准模板库STL）</p>
+<figure class="highlight c++"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">//柳婼</span></span><br><span class="line"><span class="meta">#<span class="meta-keyword">include</span> <span class="meta-string">&lt;cstdio&gt;</span></span></span><br><span class="line"><span class="meta">#<span class="meta-keyword">include</span> <span class="meta-string">&lt;algorithm&gt;</span></span></span><br><span class="line"><span class="meta">#<span class="meta-keyword">include</span> <span class="meta-string">&lt;vector&gt;</span></span></span><br><span class="line"><span class="keyword">using</span> <span class="keyword">namespace</span> <span class="built_in">std</span>;</span><br><span class="line"><span class="class"><span class="keyword">struct</span> <span class="title">student</span> &#123;</span></span><br><span class="line">    <span class="keyword">long</span> <span class="keyword">long</span> <span class="keyword">int</span> no;</span><br><span class="line">    <span class="keyword">int</span> score,finrank,loca,locarank;</span><br><span class="line">&#125;;</span><br><span class="line"><span class="function"><span class="keyword">bool</span> <span class="title">cmp1</span><span class="params">(student a, student b)</span></span>&#123;</span><br><span class="line">    <span class="keyword">return</span> a.score != b.score ? a.score &gt; b.score : a.no &lt; b.no;</span><br><span class="line">&#125;</span><br><span class="line"><span class="function"><span class="keyword">int</span> <span class="title">main</span> <span class="params">()</span></span>&#123;</span><br><span class="line">    <span class="keyword">int</span> n, m;</span><br><span class="line">    <span class="built_in">scanf</span>(<span class="string">"%d"</span>,&amp;n);</span><br><span class="line">    <span class="built_in">vector</span>&lt;student&gt; fin;</span><br><span class="line">    <span class="keyword">for</span>(<span class="keyword">int</span> i = <span class="number">1</span>; i&lt;=n;i++)&#123;</span><br><span class="line">        <span class="built_in">scanf</span>(<span class="string">"%d"</span>,&amp;m);</span><br><span class="line">        <span class="built_in">vector</span>&lt;student&gt; v(m);</span><br><span class="line">        <span class="keyword">for</span>(<span class="keyword">int</span> j = <span class="number">0</span>; j &lt; m ;j++)&#123;</span><br><span class="line">            <span class="built_in">scanf</span>(<span class="string">"%lld %d"</span>,&amp;v[j].no,&amp;v[j].score);</span><br><span class="line">            v[j].loca = i;</span><br><span class="line">        &#125;</span><br><span class="line">        sort(v.begin(),v.end(),cmp1);</span><br><span class="line">        v[<span class="number">0</span>].locarank = <span class="number">1</span>;</span><br><span class="line">        fin.push_back(v[<span class="number">0</span>]);</span><br><span class="line">        <span class="keyword">for</span>(<span class="keyword">int</span> j = <span class="number">1</span>;j &lt; m; j++)&#123;</span><br><span class="line">            v[j].locarank = (v[j].score == v[j - <span class="number">1</span>].score) ? (v[j<span class="number">-1</span>].locarank) : (j + <span class="number">1</span>);</span><br><span class="line">            fin.push_back(v[j]);</span><br><span class="line">        &#125;</span><br><span class="line">    &#125;</span><br><span class="line">    sort(fin.begin(),fin.end(),cmp1);</span><br><span class="line">    fin[<span class="number">0</span>].finrank = <span class="number">1</span>;</span><br><span class="line">    <span class="keyword">for</span>(<span class="keyword">int</span> j = <span class="number">1</span>; j &lt; fin.size();j++)</span><br><span class="line">        fin[j].finrank = (fin[j].score == fin[j - <span class="number">1</span>].score) ? (fin[j - <span class="number">1</span>].finrank) :(j + <span class="number">1</span>);</span><br><span class="line">    <span class="built_in">printf</span>(<span class="string">"%d\n"</span>,fin.size());</span><br><span class="line">    <span class="keyword">for</span>(<span class="keyword">int</span> i = <span class="number">0</span>; i &lt; fin.size();i++)</span><br><span class="line">        <span class="built_in">printf</span>(<span class="string">"%013lld %d %d %d\n"</span>,fin[i].no, fin[i].finrank, fin[i].loca, fin[i].locarank);</span><br><span class="line">    <span class="keyword">return</span> <span class="number">0</span>;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
 
 
       
@@ -329,7 +377,7 @@
     <a class="close js-modal-close" href="javascript:;"><i class="icon icon-close"></i></a>
     <p>扫一扫，分享到微信</p>
     <div class="wx-qrcode">
-      <img src="//pan.baidu.com/share/qrcode?url=http://yoursite.com/2019/07/28/算法笔记-第四章-算法初步-part2-x/" alt="微信分享二维码">
+      <img src="//pan.baidu.com/share/qrcode?url=http://yoursite.com/2019/07/25/排序/" alt="微信分享二维码">
     </div>
 </div>
 
@@ -343,18 +391,18 @@
   
 <nav id="article-nav">
   
-    <a href="/2019/07/29/递归/" id="article-nav-newer" class="article-nav-link-wrap">
+    <a href="/2019/07/28/散列/" id="article-nav-newer" class="article-nav-link-wrap">
       <i class="icon-circle-left"></i>
       <div class="article-nav-title">
         
-          递归
+          散列
         
       </div>
     </a>
   
   
-    <a href="/2019/07/25/算法笔记-第四章-算法初步-part1-x/" id="article-nav-older" class="article-nav-link-wrap">
-      <div class="article-nav-title">算法笔记-第四章-算法初步-part1-x</div>
+    <a href="/2019/07/25/入门模拟-2/" id="article-nav-older" class="article-nav-link-wrap">
+      <div class="article-nav-title">入门模拟-2</div>
       <i class="icon-circle-right"></i>
     </a>
   
