@@ -6,15 +6,19 @@
   <meta name="renderer" content="webkit">
   <meta http-equiv="X-UA-Compatible" content="IE=edge">
   <link rel="dns-prefetch" href="http://yoursite.com">
-  <title>Archives: 2019/8 | 邓淦 Blog</title>
+  <title>分数 | 邓淦 Blog</title>
   <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
-  <meta property="og:type" content="website">
-<meta property="og:title" content="邓淦 Blog">
-<meta property="og:url" content="http://yoursite.com/archives/2019/08/index.html">
+  <meta name="description" content="分数表示与化简  1.分数的表示  1234struct Fraction &amp;#123;	int up;//分子    int donw;//分母&amp;#125;;   2.分数化简  表示分数的三项规定 ： ①由分子决定分数正负，既分母为负数时，则令分子分母都变为其自身的相反数。（分母不为负） ②分数为0时，令分子为0，分母为1；（同一输出整数的操作） ③分数不为0时约分化简，既求出分子分母（绝对值">
+<meta property="og:type" content="article">
+<meta property="og:title" content="分数">
+<meta property="og:url" content="http://yoursite.com/2019/08/17/分数/index.html">
 <meta property="og:site_name" content="邓淦 Blog">
+<meta property="og:description" content="分数表示与化简  1.分数的表示  1234struct Fraction &amp;#123;	int up;//分子    int donw;//分母&amp;#125;;   2.分数化简  表示分数的三项规定 ： ①由分子决定分数正负，既分母为负数时，则令分子分母都变为其自身的相反数。（分母不为负） ②分数为0时，令分子为0，分母为1；（同一输出整数的操作） ③分数不为0时约分化简，既求出分子分母（绝对值">
 <meta property="og:locale" content="default">
+<meta property="og:updated_time" content="2019-08-17T16:02:13.718Z">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:title" content="邓淦 Blog">
+<meta name="twitter:title" content="分数">
+<meta name="twitter:description" content="分数表示与化简  1.分数的表示  1234struct Fraction &amp;#123;	int up;//分子    int donw;//分母&amp;#125;;   2.分数化简  表示分数的三项规定 ： ①由分子决定分数正负，既分母为负数时，则令分子分母都变为其自身的相反数。（分母不为负） ②分数为0时，令分子为0，分母为1；（同一输出整数的操作） ③分数不为0时约分化简，既求出分子分母（绝对值">
   
     <link rel="alternative" href="/atom.xml" title="邓淦 Blog" type="application/atom+xml">
   
@@ -130,187 +134,212 @@
             <canvas data-colors="#eaeaea" data-sectionHeight="100" data-contentId="js-content" id="myCanvas1" class="anm-canvas"></canvas>
           </div>
           <div id="js-content" class="content-ll">
-            
+            <article id="post-分数" class="article article-type-post " itemscope itemprop="blogPost">
+  <div class="article-inner">
+    
+      <header class="article-header">
+        
   
+    <h1 class="article-title" itemprop="name">
+      分数
+    </h1>
   
-    
-    
-      
-      
-      <section class="archives-wrap">
-        <div class="archive-year-wrap">
-          <a href="/archives/2019" class="archive-year">2019</a>
-        </div>
-        <div class="archives">
-    
-    <article class="archive-article archive-type-post">
-  <div class="archive-article-inner">
-    <header class="archive-article-header">
-      	<div class="article-meta">
-	      	<a href="/2019/08/17/分数/" class="archive-article-date">
+
+        
+        <a href="/2019/08/17/分数/" class="archive-article-date">
   	<time datetime="2019-08-17T08:26:07.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2019-08-17</time>
 </a>
-        </div>
-    	 
-  
-    <h1 itemprop="name">
-      <a class="archive-article-title" href="/2019/08/17/分数/">分数</a>
-    </h1>
-  
+        
+      </header>
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+        <h2 id="分数表示与化简"><a href="#分数表示与化简" class="headerlink" title="分数表示与化简"></a>分数表示与化简</h2><blockquote>
+<p> 1.分数的表示</p>
+</blockquote>
+<figure class="highlight c++"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line"><span class="class"><span class="keyword">struct</span> <span class="title">Fraction</span> &#123;</span></span><br><span class="line">	<span class="keyword">int</span> up;<span class="comment">//分子</span></span><br><span class="line">    <span class="keyword">int</span> donw;<span class="comment">//分母</span></span><br><span class="line">&#125;;</span><br></pre></td></tr></table></figure>
 
-        <div class="article-info info-on-right">
-          
-          
+<blockquote>
+<p>2.分数化简</p>
+</blockquote>
+<p><strong>表示分数的三项规定</strong> ：</p>
+<p>①由分子决定分数正负，既分母为负数时，则令分子分母都变为其自身的相反数。（分母不为负）</p>
+<p>②分数为0时，令分子为0，分母为1；（同一输出整数的操作）</p>
+<p>③分数不为0时约分化简，既求出分子分母（绝对值）的最大公约数，再而令分子分母除以之。 （化简）</p>
+<figure class="highlight c++"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br></pre></td><td class="code"><pre><span class="line"><span class="function"><span class="keyword">int</span> <span class="title">gcd</span> <span class="params">(<span class="keyword">int</span> a,<span class="keyword">int</span> b)</span> <span class="comment">// 求最大公约数</span></span></span><br><span class="line"><span class="function"></span>&#123;</span><br><span class="line">    <span class="keyword">return</span> (b == <span class="number">0</span>) ? a : gcd (b, a % b); </span><br><span class="line">&#125;</span><br><span class="line"><span class="function">Fraction <span class="title">reduction</span> <span class="params">(Fraction result)</span> </span></span><br><span class="line"><span class="function"></span>&#123;</span><br><span class="line">	<span class="keyword">if</span>(result.down &lt; <span class="number">0</span>)  <span class="comment">// 1</span></span><br><span class="line">    &#123;</span><br><span class="line">        result.up = -result.up;</span><br><span class="line">        result.down = -result.donw;</span><br><span class="line">    &#125;</span><br><span class="line">    <span class="keyword">if</span>(result.up == <span class="number">0</span>) <span class="comment">//2</span></span><br><span class="line">    &#123;</span><br><span class="line">        result.down = <span class="number">1</span>;</span><br><span class="line">    &#125;</span><br><span class="line">    <span class="keyword">else</span> <span class="comment">//3</span></span><br><span class="line">    &#123;</span><br><span class="line">        <span class="keyword">int</span> d = gcd(<span class="built_in">abs</span>(result.up),<span class="built_in">abs</span>(result.down));</span><br><span class="line">        result.up /= d;</span><br><span class="line">        result.donw /= d;</span><br><span class="line">    &#125;</span><br><span class="line">    <span class="keyword">return</span> result; </span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
 
+<h2 id="分数四则运算"><a href="#分数四则运算" class="headerlink" title="分数四则运算"></a>分数四则运算</h2><blockquote>
+<p>1.分数的加法</p>
+</blockquote>
+<figure class="highlight c++"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line"><span class="function">Fraction <span class="title">add</span> <span class="params">(Fraction f1, Fraction f2)</span></span></span><br><span class="line"><span class="function"></span>&#123;</span><br><span class="line"> 	Fraction result;</span><br><span class="line">    result.up = f1.up * f2.down + f2.up * f1.down;</span><br><span class="line">    result.down = f1.down * f2.down;</span><br><span class="line">    <span class="keyword">return</span> reduction(result);</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<blockquote>
+<p>2.分数的减法</p>
+</blockquote>
+<figure class="highlight c++"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line"><span class="function">Fraction <span class="title">minu</span><span class="params">(Fraction f1, Fraction f2)</span></span></span><br><span class="line"><span class="function"></span>&#123;</span><br><span class="line">    Fraction result;</span><br><span class="line">    result.up = f1.up * f2.down - f2.up * f1.down;</span><br><span class="line">    result.down = f1.down * f2.down;</span><br><span class="line">    <span class="keyword">return</span> reduction(result);</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<blockquote>
+<p>3.分数的乘法</p>
+</blockquote>
+<figure class="highlight c++"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line"><span class="function">Fraction <span class="title">multi</span><span class="params">(Fraction f1, Fraction f2)</span></span></span><br><span class="line"><span class="function"></span>&#123;</span><br><span class="line">    Fraction result;</span><br><span class="line">    result.up = f1.up * f1.up;</span><br><span class="line">    result.down = f2.down * f2.down;</span><br><span class="line">    <span class="keyword">return</span> reduction(result);</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<blockquote>
+<p>4.分数的除法(除数不为0)</p>
+</blockquote>
+<figure class="highlight c++"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line"><span class="function">Fraction <span class="title">divide</span><span class="params">(Fraction f1, Fraction f2)</span></span></span><br><span class="line"><span class="function"></span>&#123;</span><br><span class="line">    Fraction result;</span><br><span class="line">    result.up = f1.up * f2.down;</span><br><span class="line">    result.down = f1.down * f2.up;</span><br><span class="line">    <span class="keyword">return</span> reduction(result);</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<h2 id="分数的输出"><a href="#分数的输出" class="headerlink" title="分数的输出"></a>分数的输出</h2><p><strong>输出的要点</strong>（化简 整数 假分数 真分数）</p>
+<p>①输出分数之前先进行化简</p>
+<p>②化简后如果分母down==1，说明该分数是整数，直接输出分子</p>
+<p>③如果分子绝对值大于分母，说明该分数是假分数，此时应该以带分数的形式输出，既</p>
+<p>整数部分为up / donw，分子为abs(up) / donw, 分母为down</p>
+<p>④当②③都不满足时说明是真分数，直接输出</p>
+<figure class="highlight c++"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line"><span class="function"><span class="keyword">void</span> <span class="title">showResult</span><span class="params">(Fraction r)</span> <span class="comment">// 整数 假分数 真分数</span></span></span><br><span class="line"><span class="function"></span>&#123;</span><br><span class="line">	r = reduction(r);</span><br><span class="line">    <span class="keyword">if</span>(r.down == <span class="number">1</span>) <span class="built_in">printf</span>(<span class="string">"%lld"</span>,r.up);</span><br><span class="line">    <span class="keyword">else</span> <span class="keyword">if</span>(<span class="built_in">abs</span>(r.up) &gt; r.donw) <span class="built_in">printf</span>(<span class="string">"%d %d/%d"</span>, r.up/r.down, <span class="built_in">abs</span>(r.up)%r.down, r.down);</span><br><span class="line">    <span class="keyword">else</span> print(<span class="string">"%d/%d"</span>,r.up ,r.down);</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<p>为了使分子分母在相乘相加的时候可能造成溢出，所以应该用long long来储存分子分母。</p>
+
+      
+
+      
+        <div class="page-reward">
+          <a href="javascript:;" class="page-reward-btn tooltip-top">
+            <div class="tooltip tooltip-east">
+            <span class="tooltip-item">
+              赏
+            </span>
+            <span class="tooltip-content">
+              <span class="tooltip-text">
+                <span class="tooltip-inner">
+                  <p class="reward-p"><i class="icon icon-quo-left"></i>我不饿！<i class="icon icon-quo-right"></i></p>
+                  <div class="reward-box">
+                    
+                    
+                    <div class="reward-box-item">
+                      <img class="reward-img" src="weixin.png">
+                      <span class="reward-type">微信</span>
+                    </div>
+                    
+                  </div>
+                </span>
+              </span>
+            </span>
+          </div>
+          </a>
         </div>
-        <div class="clearfix"></div>
-    </header>
+      
+    </div>
+    <div class="article-info article-info-index">
+      
+      
+      
+
+      
+
+      
+        
+<div class="share-btn share-icons tooltip-left">
+  <div class="tooltip tooltip-east">
+    <span class="tooltip-item">
+      <a href="javascript:;" class="share-sns share-outer">
+        <i class="icon icon-share"></i>
+      </a>
+    </span>
+    <span class="tooltip-content">
+      <div class="share-wrap">
+        <div class="share-icons">
+          <a class="weibo share-sns" href="javascript:;" data-type="weibo">
+            <i class="icon icon-weibo"></i>
+          </a>
+          <a class="weixin share-sns wxFab" href="javascript:;" data-type="weixin">
+            <i class="icon icon-weixin"></i>
+          </a>
+          <a class="qq share-sns" href="javascript:;" data-type="qq">
+            <i class="icon icon-qq"></i>
+          </a>
+          <a class="douban share-sns" href="javascript:;" data-type="douban">
+            <i class="icon icon-douban"></i>
+          </a>
+          <a class="qzone share-sns" href="javascript:;" data-type="qzone">
+            <i class="icon icon-qzone"></i>
+          </a>
+          <a class="facebook share-sns" href="javascript:;" data-type="facebook">
+            <i class="icon icon-facebook"></i>
+          </a>
+          <a class="twitter share-sns" href="javascript:;" data-type="twitter">
+            <i class="icon icon-twitter"></i>
+          </a>
+          <a class="google share-sns" href="javascript:;" data-type="google">
+            <i class="icon icon-google"></i>
+          </a>
+        </div>
+      </div>
+    </span>
+  </div>
+</div>
+
+<div class="page-modal wx-share js-wx-box">
+    <a class="close js-modal-close" href="javascript:;"><i class="icon icon-close"></i></a>
+    <p>扫一扫，分享到微信</p>
+    <div class="wx-qrcode">
+      <img src="//pan.baidu.com/share/qrcode?url=http://yoursite.com/2019/08/17/分数/" alt="微信分享二维码">
+    </div>
+</div>
+
+<div class="mask js-mask"></div>
+      
+      <div class="clearfix"></div>
+    </div>
   </div>
 </article>
+
   
-    
-    
-    <article class="archive-article archive-type-post">
-  <div class="archive-article-inner">
-    <header class="archive-article-header">
-      	<div class="article-meta">
-	      	<a href="/2019/08/14/二分/" class="archive-article-date">
-  	<time datetime="2019-08-14T02:34:45.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2019-08-14</time>
-</a>
+<nav id="article-nav">
+  
+    <a href="/2019/09/09/PAT-B1002.写出这个数/" id="article-nav-newer" class="article-nav-link-wrap">
+      <i class="icon-circle-left"></i>
+      <div class="article-nav-title">
+        
+          PAT B1002 写出这个数
+        
+      </div>
+    </a>
+  
+  
+    <a href="/2019/08/14/二分/" id="article-nav-older" class="article-nav-link-wrap">
+      <div class="article-nav-title">二分</div>
+      <i class="icon-circle-right"></i>
+    </a>
+  
+</nav>
+
+
+<aside class="wrap-side-operation">
+    <div class="mod-side-operation">
+        
+        <div class="jump-container" id="js-jump-container" style="display:none;">
+            <a href="javascript:void(0)" class="mod-side-operation__jump-to-top">
+                <i class="icon-font icon-back"></i>
+            </a>
+            <div id="js-jump-plan-container" class="jump-plan-container" style="top: -11px;">
+                <i class="icon-font icon-plane jump-plane"></i>
+            </div>
         </div>
-    	 
+        
+        
+    </div>
+</aside>
+
+
+
   
-    <h1 itemprop="name">
-      <a class="archive-article-title" href="/2019/08/14/二分/">二分</a>
-    </h1>
+  
   
 
-        <div class="article-info info-on-right">
-          
-	<div class="article-tag tagcloud">
-		<i class="icon-price-tags icon"></i>
-		<ul class="article-tag-list">
-			 
-        		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color3">算法</a>
-        		</li>
-      		 
-        		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color5">算法笔记</a>
-        		</li>
-      		 
-        		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color3">学习</a>
-        		</li>
-      		
-		</ul>
-	</div>
-
-          
-
-        </div>
-        <div class="clearfix"></div>
-    </header>
-  </div>
-</article>
-  
-    
-    
-    <article class="archive-article archive-type-post">
-  <div class="archive-article-inner">
-    <header class="archive-article-header">
-      	<div class="article-meta">
-	      	<a href="/2019/08/04/PAT入门模拟-2/" class="archive-article-date">
-  	<time datetime="2019-08-04T07:49:45.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2019-08-04</time>
-</a>
-        </div>
-    	 
-  
-    <h1 itemprop="name">
-      <a class="archive-article-title" href="/2019/08/04/PAT入门模拟-2/">PAT入门模拟-2</a>
-    </h1>
   
 
-        <div class="article-info info-on-right">
-          
-	<div class="article-tag tagcloud">
-		<i class="icon-price-tags icon"></i>
-		<ul class="article-tag-list">
-			 
-        		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color3">算法</a>
-        		</li>
-      		 
-        		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color3">学习</a>
-        		</li>
-      		 
-        		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color4">PAT</a>
-        		</li>
-      		
-		</ul>
-	</div>
-
-          
-
-        </div>
-        <div class="clearfix"></div>
-    </header>
-  </div>
-</article>
-  
-    
-    
-    <article class="archive-article archive-type-post">
-  <div class="archive-article-inner">
-    <header class="archive-article-header">
-      	<div class="article-meta">
-	      	<a href="/2019/08/02/PAT入门模拟-1/" class="archive-article-date">
-  	<time datetime="2019-08-02T11:42:55.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2019-08-02</time>
-</a>
-        </div>
-    	 
-  
-    <h1 itemprop="name">
-      <a class="archive-article-title" href="/2019/08/02/PAT入门模拟-1/">PAT入门模拟-1</a>
-    </h1>
   
 
-        <div class="article-info info-on-right">
-          
-	<div class="article-tag tagcloud">
-		<i class="icon-price-tags icon"></i>
-		<ul class="article-tag-list">
-			 
-        		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color3">算法</a>
-        		</li>
-      		 
-        		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color3">学习</a>
-        		</li>
-      		 
-        		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color4">PAT</a>
-        		</li>
-      		
-		</ul>
-	</div>
-
-          
-
-        </div>
-        <div class="clearfix"></div>
-    </header>
-  </div>
-</article>
   
-  
-    </div></section>
-  
-
-    
 
 
           </div>
@@ -333,8 +362,8 @@
 	var yiliaConfig = {
 		mathjax: false,
 		isHome: false,
-		isPost: false,
-		isArchive: true,
+		isPost: true,
+		isArchive: false,
 		isTag: false,
 		isCategory: false,
 		open_in_new: true,
