@@ -43,25 +43,6 @@
     
     <entry>
       <title>PAT-B1006.换个格式输出整数</title>
-      <link href="/2019/09/10/PAT-B1006-%E6%8D%A2%E4%B8%AA%E6%A0%BC%E5%BC%8F%E8%BE%93%E5%87%BA%E6%95%B4%E6%95%B0/"/>
-      <url>/2019/09/10/PAT-B1006-%E6%8D%A2%E4%B8%AA%E6%A0%BC%E5%BC%8F%E8%BE%93%E5%87%BA%E6%95%B4%E6%95%B0/</url>
-      
-        <content type="html"><![CDATA[<p>让我们用字母 <code>B</code> 来表示“百”、字母 <code>S</code> 表示“十”，用 <code>12...n</code> 来表示不为零的个位数字 <code>n</code>（&lt;10），换个格式来输出任一个不超过 3 位的正整数。例如 <code>234</code> 应该被输出为 <code>BBSSS1234</code>，因为它有 2 个“百”、3 个“十”、以及个位的 4。</p><p><strong>输入格式</strong>：</p><p>每个测试输入包含 1 个测试用例，给出正整数 <em>n</em>（&lt;1000）。</p><p><strong>输出格式</strong>：</p><p>每个测试用例的输出占一行，用规定的格式输出 <em>n</em>。</p><p><strong>输入样例</strong> 1：</p><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">234</span><br></pre></td></tr></table></figure><p><strong>输出样例</strong> 1：</p><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">BBSSS1234</span><br></pre></td></tr></table></figure><p><strong>输入样例 2</strong>：</p><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">23</span><br></pre></td></tr></table></figure><p><strong>输出样例</strong> 2：</p><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">SS123</span><br></pre></td></tr></table></figure><p>🎀分析：创建int ans[3]数组分别保存n的百位，十位，和个位的数字，利用for循环遍历每一位上的数字就可以输出对应的数量的B,S以及个位上的12….n</p><figure class="highlight c++"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">#<span class="meta-keyword">include</span> <span class="meta-string">&lt;iostream&gt;</span></span></span><br><span class="line"><span class="keyword">using</span> <span class="keyword">namespace</span> <span class="built_in">std</span>;</span><br><span class="line"><span class="function"><span class="keyword">int</span> <span class="title">main</span> <span class="params">()</span> </span>&#123;</span><br><span class="line">    <span class="keyword">int</span> n;</span><br><span class="line">    <span class="keyword">int</span> ans[<span class="number">3</span>] = &#123;<span class="number">0</span>&#125;;</span><br><span class="line">    <span class="built_in">cin</span> &gt;&gt; n;</span><br><span class="line"><span class="keyword">for</span>(<span class="keyword">int</span> i = <span class="number">2</span>; i &gt;= <span class="number">0</span>; i--)</span><br><span class="line">    &#123;</span><br><span class="line">        ans[i] = n % <span class="number">10</span>;</span><br><span class="line">        n /= <span class="number">10</span>;</span><br><span class="line">    &#125;</span><br><span class="line">    <span class="keyword">while</span>(ans[<span class="number">0</span>]-- != <span class="number">0</span>) <span class="built_in">cout</span> &lt;&lt; <span class="string">'B'</span>;</span><br><span class="line">    <span class="keyword">while</span>(ans[<span class="number">1</span>]-- != <span class="number">0</span>) <span class="built_in">cout</span> &lt;&lt; <span class="string">'S'</span>;</span><br><span class="line">    <span class="keyword">for</span>(<span class="keyword">int</span> i = <span class="number">1</span>; i &lt;= ans[<span class="number">2</span>]; i++) <span class="built_in">cout</span> &lt;&lt; i;</span><br><span class="line">    <span class="keyword">return</span> <span class="number">0</span>; </span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>]]></content>
-      
-      
-      
-        <tags>
-            
-            <tag> PAT乙级 </tag>
-            
-        </tags>
-      
-    </entry>
-    
-    
-    
-    <entry>
-      <title>PAT-B1006.换个格式输出整数</title>
       <link href="/2019/09/10/PAT-B1006.%E6%8D%A2%E4%B8%AA%E6%A0%BC%E5%BC%8F%E8%BE%93%E5%87%BA%E6%95%B4%E6%95%B0/"/>
       <url>/2019/09/10/PAT-B1006.%E6%8D%A2%E4%B8%AA%E6%A0%BC%E5%BC%8F%E8%BE%93%E5%87%BA%E6%95%B4%E6%95%B0/</url>
       
