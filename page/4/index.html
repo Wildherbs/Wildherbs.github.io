@@ -132,43 +132,534 @@
           <div id="js-content" class="content-ll">
             
   
-    <article id="post-入门模拟-1" class="article article-type-post  article-index" itemscope itemprop="blogPost">
+    <article id="post-PAT-B1004.成绩排名" class="article article-type-post  article-index" itemscope itemprop="blogPost">
   <div class="article-inner">
     
       <header class="article-header">
         
   
     <h1 itemprop="name">
-      <a class="article-title" href="/2019/07/24/入门模拟-1/">入门模拟-1</a>
+      <a class="article-title" href="/2019/09/09/PAT-B1004.成绩排名/">PAT-B1004成绩排名</a>
     </h1>
   
 
         
-        <a href="/2019/07/24/入门模拟-1/" class="archive-article-date">
-  	<time datetime="2019-07-24T08:52:00.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2019-07-24</time>
+        <a href="/2019/09/09/PAT-B1004.成绩排名/" class="archive-article-date">
+  	<time datetime="2019-09-09T11:52:20.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2019-09-09</time>
 </a>
         
       </header>
     
     <div class="article-entry" itemprop="articleBody">
       
-        <p>本章涉及的内容有： </p>
-<ul>
-<li><p>简单模拟 ✔</p>
-</li>
-<li><p>查找元素 ✔</p>
-</li>
-<li><p>图形输出 ✔</p>
-</li>
-<li><p>日期处理 ✔</p>
-</li>
-<li><p>进制转换 （重要）</p>
-</li>
-<li><p>字符串处理 （重要）</p>
-<p><strong>注：由于这本书的大部分例题都会以PAT呈现，所以我还会附上柳婼的解答，因为她的解答会更清爽一些！也很好理解！并且课本的代码会按自己喜好改动，并非完全一致</strong></p></li></ul>
+        <p>读入 <em>n</em>（&gt;0）名学生的姓名、学号、成绩，分别输出成绩最高和成绩最低学生的姓名和学号。</p>
+<p><strong>输入格式</strong>：</p>
+<p>每个测试输入包含 1 个测试用例，格式为</p>
+<figure class="highlight lsl"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">第 <span class="number">1</span> 行：正整数 n</span><br><span class="line">第 <span class="number">2</span> 行：第 <span class="number">1</span> 个学生的姓名 学号 成绩</span><br><span class="line">第 <span class="number">3</span> 行：第 <span class="number">2</span> 个学生的姓名 学号 成绩</span><br><span class="line">  ... ... ...</span><br><span class="line">第 n+<span class="number">1</span> 行：第 n 个学生的姓名 学号 成绩</span><br></pre></td></tr></table></figure>
+
+<p>其中<code>姓名</code>和<code>学号</code>均为不超过 10 个字符的字符串，成绩为 0 到 100 之间的一个整数，这里保证在一组测试用例中没有两个学生的成绩是相同的。</p>
+<p><strong>输出格式</strong>：</p>
+<p>对每个测试用例输出 2 行，第 1 行是成绩最高学生的姓名和学号，第 2 行是成绩最低学生的姓名和学号，字符串间有 1 空格。</p>
+<p><strong>输入样例</strong>：</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">3</span><br><span class="line">Joe Math990112 89</span><br><span class="line">Mike CS991301 100</span><br><span class="line">Mary EE990830 95</span><br></pre></td></tr></table></figure>
+
+<p><strong>输出样例</strong>：</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">Mike CS991301</span><br><span class="line">Joe Math990112</span><br></pre></td></tr></table></figure>
+
+<p>🚖分析：由于只需要输出成绩最高和最低的学生姓名和学号，所以可以不用结构体排序，直接找出最高和最低的学生就可以了</p>
+<figure class="highlight c++"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">#<span class="meta-keyword">include</span> <span class="meta-string">&lt;iostream&gt;</span></span></span><br><span class="line"><span class="meta">#<span class="meta-keyword">include</span> <span class="meta-string">&lt;cstdio&gt;</span></span></span><br><span class="line"><span class="keyword">using</span> <span class="keyword">namespace</span> <span class="built_in">std</span>;</span><br><span class="line"><span class="function"><span class="keyword">int</span> <span class="title">main</span> <span class="params">()</span></span></span><br><span class="line"><span class="function"></span>&#123;</span><br><span class="line">    <span class="keyword">int</span> n ,max = <span class="number">-1</span>, min = <span class="number">101</span>, score;</span><br><span class="line">    <span class="built_in">cin</span> &gt;&gt; n;</span><br><span class="line">    <span class="built_in">string</span> maxname, minname, maxnum, minnum, name, num;</span><br><span class="line">    <span class="keyword">for</span>(<span class="keyword">int</span> i = <span class="number">0</span>; i &lt; n ; i++)</span><br><span class="line">    &#123;</span><br><span class="line">        <span class="built_in">cin</span> &gt;&gt; name &gt;&gt; num &gt;&gt; score;</span><br><span class="line">        <span class="keyword">if</span>(score &gt; max)</span><br><span class="line">        &#123;</span><br><span class="line">            max = score;</span><br><span class="line">            maxname = name;</span><br><span class="line">            maxnum = num;</span><br><span class="line">        &#125;</span><br><span class="line">        <span class="keyword">if</span> (score &lt; min)</span><br><span class="line">        &#123;</span><br><span class="line">            min = score;</span><br><span class="line">            minname = name;</span><br><span class="line">            minnum = num;</span><br><span class="line">        &#125;		</span><br><span class="line">    &#125;</span><br><span class="line">    <span class="built_in">cout</span> &lt;&lt; maxname &lt;&lt; <span class="string">" "</span> &lt;&lt; maxnum &lt;&lt; <span class="built_in">endl</span> &lt;&lt; minname &lt;&lt; <span class="string">" "</span> &lt;&lt; minnum;</span><br><span class="line">    <span class="keyword">return</span> <span class="number">0</span>;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+
+      
+
+      
+    </div>
+    <div class="article-info article-info-index">
+      
+      
+	<div class="article-tag tagcloud">
+		<i class="icon-price-tags icon"></i>
+		<ul class="article-tag-list">
+			 
+        		<li class="article-tag-list-item">
+        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color1">PAT乙级</a>
+        		</li>
+      		
+		</ul>
+	</div>
+
+      
+
+      
+        <p class="article-more-link">
+          <a class="article-more-a" href="/2019/09/09/PAT-B1004.成绩排名/">展开全文 >></a>
+        </p>
+      
+
+      
+      <div class="clearfix"></div>
+    </div>
+  </div>
+</article>
+
+<aside class="wrap-side-operation">
+    <div class="mod-side-operation">
         
-          <a class="article-more-a" href="/2019/07/24/入门模拟-1/#more">more >></a>
+        <div class="jump-container" id="js-jump-container" style="display:none;">
+            <a href="javascript:void(0)" class="mod-side-operation__jump-to-top">
+                <i class="icon-font icon-back"></i>
+            </a>
+            <div id="js-jump-plan-container" class="jump-plan-container" style="top: -11px;">
+                <i class="icon-font icon-plane jump-plane"></i>
+            </div>
+        </div>
         
+        
+    </div>
+</aside>
+
+
+
+
+  
+    <article id="post-PAT-B1003.我要通过" class="article article-type-post  article-index" itemscope itemprop="blogPost">
+  <div class="article-inner">
+    
+      <header class="article-header">
+        
+  
+    <h1 itemprop="name">
+      <a class="article-title" href="/2019/09/09/PAT-B1003.我要通过/">PAT-B1003我要通过!</a>
+    </h1>
+  
+
+        
+        <a href="/2019/09/09/PAT-B1003.我要通过/" class="archive-article-date">
+  	<time datetime="2019-09-09T11:19:51.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2019-09-09</time>
+</a>
+        
+      </header>
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+        <p>“<strong>答案正确</strong>”是自动判题系统给出的最令人欢喜的回复。本题属于 PAT 的“<strong>答案正确</strong>”大派送 —— 只要读入的字符串满足下列条件，系统就输出“<strong>答案正确</strong>”，否则输出“<strong>答案错误</strong>”。</p>
+<p>得到“<strong>答案正确</strong>”的条件是：</p>
+<ol>
+<li>字符串中必须仅有 <code>P</code>、 <code>A</code>、 <code>T</code>这三种字符，不可以包含其它字符；</li>
+<li>任意形如 <code>xPATx</code> 的字符串都可以获得“<strong>答案正确</strong>”，其中 <code>x</code> 或者是空字符串，或者是仅由字母 <code>A</code> 组成的字符串；</li>
+<li>如果 <code>aPbTc</code> 是正确的，那么 <code>aPbATca</code> 也是正确的，其中 <code>a</code>、 <code>b</code>、 <code>c</code> 均或者是空字符串，或者是仅由字母 <code>A</code> 组成的字符串。</li>
+</ol>
+<p>现在就请你为 PAT 写一个自动裁判程序，判定哪些字符串是可以获得“<strong>答案正确</strong>”的。</p>
+<p><strong>输入格式</strong>：</p>
+<p>每个测试输入包含 1 个测试用例。第 1 行给出一个正整数 <em>n</em> (&lt;10)，是需要检测的字符串个数。接下来每个字符串占一行，字符串长度不超过 100，且不包含空格。</p>
+<p><strong>输出格式</strong>：</p>
+<p>每个字符串的检测结果占一行，如果该字符串可以获得“<strong>答案正确</strong>”，则输出 <code>YES</code>，否则输出 <code>NO</code>。</p>
+<p><strong>输入样例</strong>：</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><span class="line">8</span><br><span class="line">PAT</span><br><span class="line">PAAT</span><br><span class="line">AAPATAA</span><br><span class="line">AAPAATAAAA</span><br><span class="line">xPATx</span><br><span class="line">PT</span><br><span class="line">Whatever</span><br><span class="line">APAAATAA</span><br></pre></td></tr></table></figure>
+
+<p><strong>输出样例</strong>：</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line">YES</span><br><span class="line">YES</span><br><span class="line">YES</span><br><span class="line">YES</span><br><span class="line">NO</span><br><span class="line">NO</span><br><span class="line">NO</span><br><span class="line">NO</span><br></pre></td></tr></table></figure>
+
+<p>🛴分析：根据本题的条件和所给的样例，可以知道符合条件的字符必须含有PAT三种字母，不能缺少一个也不能多出其他字母，在多写出几个符合条件的字符串如（AA P AAA T AAAAAA）, 不难得出T右边的A的数量<strong>Aright</strong> 一定是P左边的A的数量<strong>Aleft</strong> 乘上 P与 T中间的A的数量 <strong>Amid</strong>，既 <strong>Aright = Aleft * Amid</strong>，并且在Aright和Aleft都是空的时候也符合要求。</p>
+<p>对于这样有多种要求限制的题目，我们只要根据题意继续往下面推断就不难得出字符的总体规律。</p>
+<p>如：根据第二个条件，进行递推的第一个字符串的<strong>“左右”</strong>的A数量一定是<strong>对称</strong>的，在此基础上根据第三个条件往后进行递推</p>
+<figure class="highlight nginx"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line"><span class="attribute">PAT</span> PAAT PAAAT PAAAAT</span><br><span class="line">APATA APAATAA APAAATAAA APAAAATAAAA</span><br><span class="line">AAPATAA AAPAATAAAA AAPAAATAAAAAA</span><br><span class="line">AAAPATAAA AAAPAATAAAAAA</span><br><span class="line">·····</span><br></pre></td></tr></table></figure>
+
+<p>因此我们设置两个pointer为idx_P和idx_T来找到P和T两个字母在字符串中的位置，这也一来我们就可以计算出Aringht，Amid，Aleft，只要满足<strong>Aright = Aleft * Amid</strong>，就输出YES，否则就是NO</p>
+<figure class="highlight c++"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">#<span class="meta-keyword">include</span> <span class="meta-string">&lt;iostream&gt;</span></span></span><br><span class="line"><span class="meta">#<span class="meta-keyword">include</span> <span class="meta-string">&lt;cstdio&gt;</span></span></span><br><span class="line"><span class="meta">#<span class="meta-keyword">include</span> <span class="meta-string">&lt;string&gt;</span></span></span><br><span class="line"><span class="keyword">using</span> <span class="keyword">namespace</span> <span class="built_in">std</span>;</span><br><span class="line"><span class="function"><span class="keyword">int</span> <span class="title">main</span> <span class="params">()</span></span></span><br><span class="line"><span class="function"></span>&#123;</span><br><span class="line">    <span class="keyword">int</span> N;</span><br><span class="line">    <span class="built_in">cin</span> &gt;&gt; N;</span><br><span class="line">    <span class="keyword">for</span>(<span class="keyword">int</span> i = <span class="number">0</span>; i &lt; N; i++)</span><br><span class="line">    &#123;</span><br><span class="line">        <span class="built_in">string</span> temp;</span><br><span class="line">        <span class="built_in">cin</span> &gt;&gt; temp;</span><br><span class="line">        <span class="keyword">int</span> flag = <span class="number">1</span>;</span><br><span class="line">        <span class="keyword">for</span> (<span class="keyword">int</span> j = <span class="number">0</span>; j &lt; temp.size(); j++) <span class="comment">//非法输入</span></span><br><span class="line">            <span class="keyword">if</span>(temp[j] != <span class="string">'P'</span> &amp;&amp; temp[j] != <span class="string">'A'</span> &amp;&amp; temp[j] != <span class="string">'T'</span>)</span><br><span class="line">            &#123;</span><br><span class="line">                <span class="built_in">cout</span> &lt;&lt; <span class="string">"NO"</span> &lt;&lt; <span class="built_in">endl</span>;</span><br><span class="line">                flag = <span class="number">0</span>;</span><br><span class="line">                <span class="keyword">break</span>;</span><br><span class="line">            &#125;</span><br><span class="line">        <span class="keyword">if</span>(flag == <span class="number">1</span>) <span class="comment">//合法输入</span></span><br><span class="line">        &#123;	</span><br><span class="line">            <span class="keyword">int</span> leftA, midA, rightA;</span><br><span class="line">            <span class="keyword">int</span> len = temp.length(), idx_P = <span class="number">0</span>, idx_T = <span class="number">0</span>;</span><br><span class="line">            <span class="keyword">while</span>(temp[idx_P] != <span class="string">'P'</span>) idx_P ++;</span><br><span class="line">            <span class="keyword">while</span>(temp[idx_T] != <span class="string">'T'</span>) idx_T ++;</span><br><span class="line">            midA = idx_T - idx_P - <span class="number">1</span>;</span><br><span class="line">            leftA = idx_P;</span><br><span class="line">            rightA = len - idx_T - <span class="number">1</span>;</span><br><span class="line">            <span class="keyword">if</span>(rightA == leftA * midA &amp;&amp; midA != <span class="number">0</span>)</span><br><span class="line">                <span class="built_in">cout</span> &lt;&lt; <span class="string">"YES"</span> &lt;&lt;<span class="built_in">endl</span>;</span><br><span class="line">            <span class="keyword">else</span></span><br><span class="line">                <span class="built_in">cout</span> &lt;&lt; <span class="string">"NO"</span> &lt;&lt; <span class="built_in">endl</span>;		</span><br><span class="line">        &#125;</span><br><span class="line">    &#125;</span><br><span class="line">    <span class="keyword">return</span> <span class="number">0</span>;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+
+      
+
+      
+    </div>
+    <div class="article-info article-info-index">
+      
+      
+	<div class="article-tag tagcloud">
+		<i class="icon-price-tags icon"></i>
+		<ul class="article-tag-list">
+			 
+        		<li class="article-tag-list-item">
+        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color1">PAT乙级</a>
+        		</li>
+      		
+		</ul>
+	</div>
+
+      
+
+      
+        <p class="article-more-link">
+          <a class="article-more-a" href="/2019/09/09/PAT-B1003.我要通过/">展开全文 >></a>
+        </p>
+      
+
+      
+      <div class="clearfix"></div>
+    </div>
+  </div>
+</article>
+
+<aside class="wrap-side-operation">
+    <div class="mod-side-operation">
+        
+        <div class="jump-container" id="js-jump-container" style="display:none;">
+            <a href="javascript:void(0)" class="mod-side-operation__jump-to-top">
+                <i class="icon-font icon-back"></i>
+            </a>
+            <div id="js-jump-plan-container" class="jump-plan-container" style="top: -11px;">
+                <i class="icon-font icon-plane jump-plane"></i>
+            </div>
+        </div>
+        
+        
+    </div>
+</aside>
+
+
+
+
+  
+    <article id="post-PAT-B1002.写出这个数" class="article article-type-post  article-index" itemscope itemprop="blogPost">
+  <div class="article-inner">
+    
+      <header class="article-header">
+        
+  
+    <h1 itemprop="name">
+      <a class="article-title" href="/2019/09/09/PAT-B1002.写出这个数/">PAT B1002 写出这个数</a>
+    </h1>
+  
+
+        
+        <a href="/2019/09/09/PAT-B1002.写出这个数/" class="archive-article-date">
+  	<time datetime="2019-09-09T11:03:54.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2019-09-09</time>
+</a>
+        
+      </header>
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+        <p>读入一个正整数 <em>n</em>，计算其各位数字之和，用汉语拼音写出和的每一位数字。</p>
+<p><strong>输入格式</strong>：</p>
+<p>每个测试输入包含 1 个测试用例，即给出自然数 <em>n</em> 的值。这里保证 <em>n</em> 小于 10100。</p>
+<p><strong>输出格式</strong>：</p>
+<p>在一行内输出 <em>n</em> 的各位数字之和的每一位，拼音数字间有 1 空格，但一行中最后一个拼音数字后没有空格。</p>
+<p><strong>输入样例</strong>：</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">1234567890987654321123456789</span><br></pre></td></tr></table></figure>
+
+<p><strong>输出样例</strong>：</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">yi san wu</span><br></pre></td></tr></table></figure>
+
+<p>🚲分析：用int sum保存计算所有位上数字的和，将和sum转化为字符串string后，就可以从sum的第一位开始遍历sum的每一位进行拼音的输出</p>
+<figure class="highlight c++"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">#<span class="meta-keyword">include</span> <span class="meta-string">&lt;iostream&gt;</span></span></span><br><span class="line"><span class="meta">#<span class="meta-keyword">include</span> <span class="meta-string">&lt;cstdio&gt;</span></span></span><br><span class="line"><span class="meta">#<span class="meta-keyword">include</span> <span class="meta-string">&lt;string&gt;</span></span></span><br><span class="line"><span class="keyword">using</span> <span class="keyword">namespace</span> <span class="built_in">std</span>;</span><br><span class="line"><span class="built_in">string</span> ans[<span class="number">10</span>] = &#123;<span class="string">"ling"</span>,<span class="string">"yi"</span>,<span class="string">"er"</span>,<span class="string">"san"</span>,<span class="string">"si"</span>,<span class="string">"wu"</span>,<span class="string">"liu"</span>,<span class="string">"qi"</span>,<span class="string">"ba"</span>,<span class="string">"jiu"</span>&#125;;</span><br><span class="line"><span class="function"><span class="keyword">int</span> <span class="title">main</span> <span class="params">()</span></span></span><br><span class="line"><span class="function"></span>&#123;</span><br><span class="line">    <span class="built_in">string</span> s;</span><br><span class="line">    <span class="built_in">cin</span> &gt;&gt; s;</span><br><span class="line">    <span class="keyword">int</span> sum;</span><br><span class="line">    <span class="keyword">for</span>(<span class="keyword">int</span> i = <span class="number">0</span>; i &lt; s.length(); i++)</span><br><span class="line">        sum += s[i] - <span class="string">'0'</span>;</span><br><span class="line">    <span class="built_in">string</span> t = to_string(sum);</span><br><span class="line">    <span class="keyword">for</span>(<span class="keyword">int</span> i = <span class="number">0</span>; i &lt; t.length(); i++)</span><br><span class="line">    &#123;</span><br><span class="line">        <span class="keyword">if</span>(i &gt; <span class="number">0</span>) <span class="built_in">cout</span> &lt;&lt; <span class="string">" "</span>;</span><br><span class="line">        <span class="built_in">cout</span> &lt;&lt; ans[t[i] - <span class="string">'0'</span>];</span><br><span class="line">    &#125;</span><br><span class="line">    <span class="keyword">return</span> <span class="number">0</span>;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+
+      
+
+      
+    </div>
+    <div class="article-info article-info-index">
+      
+      
+	<div class="article-tag tagcloud">
+		<i class="icon-price-tags icon"></i>
+		<ul class="article-tag-list">
+			 
+        		<li class="article-tag-list-item">
+        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color1">PAT乙级</a>
+        		</li>
+      		
+		</ul>
+	</div>
+
+      
+
+      
+        <p class="article-more-link">
+          <a class="article-more-a" href="/2019/09/09/PAT-B1002.写出这个数/">展开全文 >></a>
+        </p>
+      
+
+      
+      <div class="clearfix"></div>
+    </div>
+  </div>
+</article>
+
+<aside class="wrap-side-operation">
+    <div class="mod-side-operation">
+        
+        <div class="jump-container" id="js-jump-container" style="display:none;">
+            <a href="javascript:void(0)" class="mod-side-operation__jump-to-top">
+                <i class="icon-font icon-back"></i>
+            </a>
+            <div id="js-jump-plan-container" class="jump-plan-container" style="top: -11px;">
+                <i class="icon-font icon-plane jump-plane"></i>
+            </div>
+        </div>
+        
+        
+    </div>
+</aside>
+
+
+
+
+  
+    <article id="post-PAT-B1001.害死人不偿命的3n+1猜想" class="article article-type-post  article-index" itemscope itemprop="blogPost">
+  <div class="article-inner">
+    
+      <header class="article-header">
+        
+  
+    <h1 itemprop="name">
+      <a class="article-title" href="/2019/09/09/PAT-B1001.害死人不偿命的3n+1猜想/">PAT B1001 害死人不偿命的(3n+1)猜想</a>
+    </h1>
+  
+
+        
+        <a href="/2019/09/09/PAT-B1001.害死人不偿命的3n+1猜想/" class="archive-article-date">
+  	<time datetime="2019-09-09T10:40:54.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2019-09-09</time>
+</a>
+        
+      </header>
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+        <p>卡拉兹(Callatz)猜想：</p>
+<p>对任何一个正整数 <em>n</em>，如果它是偶数，那么把它砍掉一半；如果它是奇数，那么把 (3<em>n</em>+1) 砍掉一半。这样一直反复砍下去，最后一定在某一步得到 <em>n</em>=1。卡拉兹在 1950 年的世界数学家大会上公布了这个猜想，传说当时耶鲁大学师生齐动员，拼命想证明这个貌似很傻很天真的命题，结果闹得学生们无心学业，一心只证 (3<em>n</em>+1)，以至于有人说这是一个阴谋，卡拉兹是在蓄意延缓美国数学界教学与科研的进展……</p>
+<p>我们今天的题目不是证明卡拉兹猜想，而是对给定的任一不超过 1000 的正整数 <em>n</em>，简单地数一下，需要多少步（砍几下）才能得到 <em>n</em>=1？</p>
+<p><strong>输入格式</strong>：</p>
+<p>每个测试输入包含 1 个测试用例，即给出正整数 <em>n</em> 的值。</p>
+<p><strong>输出格式</strong>：</p>
+<p>输出从 <em>n</em> 计算到 1 需要的步数。</p>
+<p><strong>输入样例</strong>：</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">3</span><br></pre></td></tr></table></figure>
+
+<p><strong>输出样例</strong>：</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">5</span><br></pre></td></tr></table></figure>
+
+<p>🎐分析：简单的模拟题意即可,n为偶数时n = n / 2，奇数时乘 n = n* 3 + 1, 直到n为1时停止，输出对应的cnt值</p>
+<figure class="highlight c++"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">#<span class="meta-keyword">include</span> <span class="meta-string">&lt;iostream&gt;</span></span></span><br><span class="line"><span class="meta">#<span class="meta-keyword">include</span> <span class="meta-string">&lt;cstdio&gt;</span></span></span><br><span class="line"><span class="keyword">using</span> <span class="keyword">namespace</span> <span class="built_in">std</span>;</span><br><span class="line"><span class="function"><span class="keyword">int</span> <span class="title">main</span> <span class="params">()</span> </span>&#123;</span><br><span class="line">    <span class="keyword">int</span> N, cnt = <span class="number">0</span>;</span><br><span class="line">    <span class="built_in">cin</span> &gt;&gt; N;</span><br><span class="line">    <span class="keyword">while</span>(N != <span class="number">1</span>)</span><br><span class="line">    &#123;</span><br><span class="line">        <span class="keyword">if</span>(N % <span class="number">2</span> == <span class="number">0</span>) N /= <span class="number">2</span>;</span><br><span class="line">        <span class="keyword">else</span> <span class="keyword">if</span> (N % <span class="number">2</span> == <span class="number">1</span>) N = (N * <span class="number">3</span> + <span class="number">1</span>) / <span class="number">2</span>;</span><br><span class="line">   		cnt++;</span><br><span class="line">    &#125;</span><br><span class="line">    <span class="built_in">cout</span> &lt;&lt; cnt;</span><br><span class="line">    <span class="keyword">return</span> <span class="number">0</span>;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+
+      
+
+      
+    </div>
+    <div class="article-info article-info-index">
+      
+      
+	<div class="article-tag tagcloud">
+		<i class="icon-price-tags icon"></i>
+		<ul class="article-tag-list">
+			 
+        		<li class="article-tag-list-item">
+        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color1">PAT乙级</a>
+        		</li>
+      		
+		</ul>
+	</div>
+
+      
+
+      
+        <p class="article-more-link">
+          <a class="article-more-a" href="/2019/09/09/PAT-B1001.害死人不偿命的3n+1猜想/">展开全文 >></a>
+        </p>
+      
+
+      
+      <div class="clearfix"></div>
+    </div>
+  </div>
+</article>
+
+<aside class="wrap-side-operation">
+    <div class="mod-side-operation">
+        
+        <div class="jump-container" id="js-jump-container" style="display:none;">
+            <a href="javascript:void(0)" class="mod-side-operation__jump-to-top">
+                <i class="icon-font icon-back"></i>
+            </a>
+            <div id="js-jump-plan-container" class="jump-plan-container" style="top: -11px;">
+                <i class="icon-font icon-plane jump-plane"></i>
+            </div>
+        </div>
+        
+        
+    </div>
+</aside>
+
+
+
+
+  
+    <article id="post-分数" class="article article-type-post  article-index" itemscope itemprop="blogPost">
+  <div class="article-inner">
+    
+      <header class="article-header">
+        
+  
+    <h1 itemprop="name">
+      <a class="article-title" href="/2019/08/17/分数/">分数</a>
+    </h1>
+  
+
+        
+        <a href="/2019/08/17/分数/" class="archive-article-date">
+  	<time datetime="2019-08-17T08:26:07.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2019-08-17</time>
+</a>
+        
+      </header>
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+        <h2 id="分数表示与化简"><a href="#分数表示与化简" class="headerlink" title="分数表示与化简"></a>分数表示与化简</h2><blockquote>
+<p> 1.分数的表示</p>
+</blockquote>
+<figure class="highlight c++"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line"><span class="class"><span class="keyword">struct</span> <span class="title">Fraction</span> &#123;</span></span><br><span class="line">	<span class="keyword">int</span> up;<span class="comment">//分子</span></span><br><span class="line">    <span class="keyword">int</span> donw;<span class="comment">//分母</span></span><br><span class="line">&#125;;</span><br></pre></td></tr></table></figure>
+
+<blockquote>
+<p>2.分数化简</p>
+</blockquote>
+<p><strong>表示分数的三项规定</strong> ：</p>
+<p>①由分子决定分数正负，既分母为负数时，则令分子分母都变为其自身的相反数。（分母不为负）</p>
+<p>②分数为0时，令分子为0，分母为1；（同一输出整数的操作）</p>
+<p>③分数不为0时约分化简，既求出分子分母（绝对值）的最大公约数，再而令分子分母除以之。 （化简）</p>
+<figure class="highlight c++"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br></pre></td><td class="code"><pre><span class="line"><span class="function"><span class="keyword">int</span> <span class="title">gcd</span> <span class="params">(<span class="keyword">int</span> a,<span class="keyword">int</span> b)</span> <span class="comment">// 求最大公约数</span></span></span><br><span class="line"><span class="function"></span>&#123;</span><br><span class="line">    <span class="keyword">return</span> (b == <span class="number">0</span>) ? a : gcd (b, a % b); </span><br><span class="line">&#125;</span><br><span class="line"><span class="function">Fraction <span class="title">reduction</span> <span class="params">(Fraction result)</span> </span></span><br><span class="line"><span class="function"></span>&#123;</span><br><span class="line">	<span class="keyword">if</span>(result.down &lt; <span class="number">0</span>)  <span class="comment">// 1</span></span><br><span class="line">    &#123;</span><br><span class="line">        result.up = -result.up;</span><br><span class="line">        result.down = -result.donw;</span><br><span class="line">    &#125;</span><br><span class="line">    <span class="keyword">if</span>(result.up == <span class="number">0</span>) <span class="comment">//2</span></span><br><span class="line">    &#123;</span><br><span class="line">        result.down = <span class="number">1</span>;</span><br><span class="line">    &#125;</span><br><span class="line">    <span class="keyword">else</span> <span class="comment">//3</span></span><br><span class="line">    &#123;</span><br><span class="line">        <span class="keyword">int</span> d = gcd(<span class="built_in">abs</span>(result.up),<span class="built_in">abs</span>(result.down));</span><br><span class="line">        result.up /= d;</span><br><span class="line">        result.donw /= d;</span><br><span class="line">    &#125;</span><br><span class="line">    <span class="keyword">return</span> result; </span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<h2 id="分数四则运算"><a href="#分数四则运算" class="headerlink" title="分数四则运算"></a>分数四则运算</h2><blockquote>
+<p>1.分数的加法</p>
+</blockquote>
+<figure class="highlight c++"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line"><span class="function">Fraction <span class="title">add</span> <span class="params">(Fraction f1, Fraction f2)</span></span></span><br><span class="line"><span class="function"></span>&#123;</span><br><span class="line"> 	Fraction result;</span><br><span class="line">    result.up = f1.up * f2.down + f2.up * f1.down;</span><br><span class="line">    result.down = f1.down * f2.down;</span><br><span class="line">    <span class="keyword">return</span> reduction(result);</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<blockquote>
+<p>2.分数的减法</p>
+</blockquote>
+<figure class="highlight c++"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line"><span class="function">Fraction <span class="title">minu</span><span class="params">(Fraction f1, Fraction f2)</span></span></span><br><span class="line"><span class="function"></span>&#123;</span><br><span class="line">    Fraction result;</span><br><span class="line">    result.up = f1.up * f2.down - f2.up * f1.down;</span><br><span class="line">    result.down = f1.down * f2.down;</span><br><span class="line">    <span class="keyword">return</span> reduction(result);</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<blockquote>
+<p>3.分数的乘法</p>
+</blockquote>
+<figure class="highlight c++"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line"><span class="function">Fraction <span class="title">multi</span><span class="params">(Fraction f1, Fraction f2)</span></span></span><br><span class="line"><span class="function"></span>&#123;</span><br><span class="line">    Fraction result;</span><br><span class="line">    result.up = f1.up * f1.up;</span><br><span class="line">    result.down = f2.down * f2.down;</span><br><span class="line">    <span class="keyword">return</span> reduction(result);</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<blockquote>
+<p>4.分数的除法(除数不为0)</p>
+</blockquote>
+<figure class="highlight c++"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line"><span class="function">Fraction <span class="title">divide</span><span class="params">(Fraction f1, Fraction f2)</span></span></span><br><span class="line"><span class="function"></span>&#123;</span><br><span class="line">    Fraction result;</span><br><span class="line">    result.up = f1.up * f2.down;</span><br><span class="line">    result.down = f1.down * f2.up;</span><br><span class="line">    <span class="keyword">return</span> reduction(result);</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<h2 id="分数的输出"><a href="#分数的输出" class="headerlink" title="分数的输出"></a>分数的输出</h2><p><strong>输出的要点</strong>（化简 整数 假分数 真分数）</p>
+<p>①输出分数之前先进行化简</p>
+<p>②化简后如果分母down==1，说明该分数是整数，直接输出分子</p>
+<p>③如果分子绝对值大于分母，说明该分数是假分数，此时应该以带分数的形式输出，既</p>
+<p>整数部分为up / donw，分子为abs(up) / donw, 分母为down</p>
+<p>④当②③都不满足时说明是真分数，直接输出</p>
+<figure class="highlight c++"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line"><span class="function"><span class="keyword">void</span> <span class="title">showResult</span><span class="params">(Fraction r)</span> <span class="comment">// 整数 假分数 真分数</span></span></span><br><span class="line"><span class="function"></span>&#123;</span><br><span class="line">	r = reduction(r);</span><br><span class="line">    <span class="keyword">if</span>(r.down == <span class="number">1</span>) <span class="built_in">printf</span>(<span class="string">"%lld"</span>,r.up);</span><br><span class="line">    <span class="keyword">else</span> <span class="keyword">if</span>(<span class="built_in">abs</span>(r.up) &gt; r.donw) <span class="built_in">printf</span>(<span class="string">"%d %d/%d"</span>, r.up/r.down, <span class="built_in">abs</span>(r.up)%r.down, r.down);</span><br><span class="line">    <span class="keyword">else</span> print(<span class="string">"%d/%d"</span>,r.up ,r.down);</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<p>为了使分子分母在相乘相加的时候可能造成溢出，所以应该用long long来储存分子分母。</p>
+
+      
+
+      
+    </div>
+    <div class="article-info article-info-index">
+      
+      
+      
+
+      
+        <p class="article-more-link">
+          <a class="article-more-a" href="/2019/08/17/分数/">展开全文 >></a>
+        </p>
+      
+
+      
+      <div class="clearfix"></div>
+    </div>
+  </div>
+</article>
+
+<aside class="wrap-side-operation">
+    <div class="mod-side-operation">
+        
+        <div class="jump-container" id="js-jump-container" style="display:none;">
+            <a href="javascript:void(0)" class="mod-side-operation__jump-to-top">
+                <i class="icon-font icon-back"></i>
+            </a>
+            <div id="js-jump-plan-container" class="jump-plan-container" style="top: -11px;">
+                <i class="icon-font icon-plane jump-plane"></i>
+            </div>
+        </div>
+        
+        
+    </div>
+</aside>
+
+
+
+
+  
+    <article id="post-二分" class="article article-type-post  article-index" itemscope itemprop="blogPost">
+  <div class="article-inner">
+    
+      <header class="article-header">
+        
+  
+    <h1 itemprop="name">
+      <a class="article-title" href="/2019/08/14/二分/">二分</a>
+    </h1>
+  
+
+        
+        <a href="/2019/08/14/二分/" class="archive-article-date">
+  	<time datetime="2019-08-14T02:34:45.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2019-08-14</time>
+</a>
+        
+      </header>
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+        <h2 id="二分"><a href="#二分" class="headerlink" title="二分"></a>二分</h2><h4 id="二分查找"><a href="#二分查找" class="headerlink" title="二分查找"></a>二分查找</h4><blockquote>
+<p> <strong>①在给定递增序列中，查找值为x的元素下标</strong></p>
+</blockquote>
+<figure class="highlight c++"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">#<span class="meta-keyword">include</span> <span class="meta-string">&lt;iostream&gt;</span></span></span><br><span class="line"><span class="keyword">using</span> <span class="keyword">namespace</span> <span class="built_in">std</span>;</span><br><span class="line"><span class="comment">//A[]为严格递增序列 left为二分下边界 right为二分上边界 x为查找值</span></span><br><span class="line"><span class="function"><span class="keyword">int</span> <span class="title">binarySearch</span><span class="params">(<span class="keyword">int</span> A[], <span class="keyword">int</span> left, <span class="keyword">int</span> right, <span class="keyword">int</span> x)</span></span></span><br><span class="line"><span class="function"></span>&#123;</span><br><span class="line">    <span class="keyword">int</span> mid;</span><br><span class="line">    <span class="keyword">while</span>(left &lt;= right) <span class="comment">// left大于right时跳出循环，既没找到元素</span></span><br><span class="line">    &#123;</span><br><span class="line">        mid = (right + left) / <span class="number">2</span>;</span><br><span class="line">        <span class="keyword">if</span>(A[mid] == x) <span class="keyword">return</span> mid; </span><br><span class="line">        <span class="keyword">else</span> <span class="keyword">if</span> (A[mid] &gt; x) right  = mid - <span class="number">1</span>;</span><br><span class="line">        <span class="keyword">else</span> <span class="keyword">if</span> (A[mid] &lt; x) left   = mid + <span class="number">1</span>;</span><br><span class="line">    &#125;</span><br><span class="line">    <span class="keyword">return</span> <span class="number">-1</span>;<span class="comment">//没找到x元素</span></span><br><span class="line">&#125;</span><br><span class="line"><span class="function"><span class="keyword">int</span> <span class="title">main</span> <span class="params">()</span> </span>&#123;</span><br><span class="line">    <span class="keyword">int</span> A[<span class="number">11</span>] = &#123;<span class="number">-1</span>,<span class="number">1</span>,<span class="number">3</span>,<span class="number">4</span>,<span class="number">6</span>,<span class="number">7</span>,<span class="number">8</span>,<span class="number">10</span>,<span class="number">11</span>,<span class="number">12</span>,<span class="number">15</span>&#125;; </span><br><span class="line">    <span class="built_in">cout</span> &lt;&lt; binarySearch(A,<span class="number">1</span>,<span class="number">10</span>,<span class="number">10</span>); <span class="comment">//序列下标从1开始，查找一个x==10的元素下标</span></span><br><span class="line">    <span class="keyword">return</span> <span class="number">0</span>;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<blockquote>
+<p> <strong>②在给定递减的序列中，查找值为x的元素下标</strong></p>
+</blockquote>
+<figure class="highlight c++"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">#<span class="meta-keyword">include</span> <span class="meta-string">&lt;iostream&gt;</span></span></span><br><span class="line"><span class="keyword">using</span> <span class="keyword">namespace</span> <span class="built_in">std</span>;</span><br><span class="line"><span class="comment">//A[]为严格递增序列 left为二分下边界 right为二分上边界 x为查找值</span></span><br><span class="line"><span class="function"><span class="keyword">int</span> <span class="title">binarySearch</span><span class="params">(<span class="keyword">int</span> A[], <span class="keyword">int</span> left, <span class="keyword">int</span> right, <span class="keyword">int</span> x)</span></span></span><br><span class="line"><span class="function"></span>&#123;</span><br><span class="line">    <span class="keyword">int</span> mid;</span><br><span class="line">    <span class="keyword">while</span>(left &lt;= right) <span class="comment">// left大于right时跳出循环，既没找到元素</span></span><br><span class="line">    &#123;</span><br><span class="line">        mid = (right + left) / <span class="number">2</span>;</span><br><span class="line">        <span class="keyword">if</span>(A[mid] == x) <span class="keyword">return</span> mid; </span><br><span class="line">        <span class="keyword">else</span> <span class="keyword">if</span> (A[mid] &gt; x) left    = mid - <span class="number">1</span>;</span><br><span class="line">        <span class="keyword">else</span> <span class="keyword">if</span> (A[mid] &lt; x) right   = mid + <span class="number">1</span>;</span><br><span class="line">    &#125;</span><br><span class="line">    <span class="keyword">return</span> <span class="number">-1</span>;<span class="comment">//没找到x元素</span></span><br><span class="line">&#125;</span><br><span class="line"><span class="function"><span class="keyword">int</span> <span class="title">main</span> <span class="params">()</span> </span>&#123;</span><br><span class="line">    <span class="keyword">int</span> A[<span class="number">11</span>] = &#123;<span class="number">-1</span>,<span class="number">15</span>,<span class="number">13</span>,<span class="number">12</span>,<span class="number">7</span>,<span class="number">6</span>,<span class="number">5</span>,<span class="number">4</span>,<span class="number">3</span>,<span class="number">2</span>,<span class="number">1</span>&#125;; </span><br><span class="line">    <span class="built_in">cout</span> &lt;&lt; binarySearch(A,<span class="number">1</span>,<span class="number">10</span>,<span class="number">10</span>); <span class="comment">//序列下标从1开始，查找一个x==10的元素下标</span></span><br><span class="line">    <span class="keyword">return</span> <span class="number">0</span>;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<p>🌮当序列递减时，可以看作序列递增但left和right是“相反”的，又因为实际操作的序列是递增序列的倒置，所以只要在原代码中让<strong>right = mid -1</strong> 和 <strong>left = mid + 1</strong> “  交换”一下就可以了，因此更方便的办法是只需要让原代码中的 A[mid] &gt; x 变为 A[mid] &lt; x 就可以了 </p>
+<p><img src="/2019/08/14/二分/1.jpg" alt="1"></p>
+<blockquote>
+<p><strong>③找出序列中第一个大于等于 x 元素的位置</strong></p>
+</blockquote>
+<p>Ⅰ.如果A[mid] &gt;= x，说明一个大于等于x的位置在mid处或者在mid的左侧，令right = mid ,既缩短右子区间继续查找[left,mid]</p>
+<p>Ⅱ.如果A[mid] &lt; x, 说明第一个大于等于x的位置 在mid的右侧，令left = mid +1 ，既缩短左子区间继续查找[mid+1，right] </p>
+<p>Ⅲ.如果中不存在x，则返回的结果将是<strong>假设序列中存在x，x应当在的位置</strong></p>
+<figure class="highlight c++"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br></pre></td><td class="code"><pre><span class="line"><span class="function"><span class="keyword">int</span> <span class="title">lower_bound</span><span class="params">(<span class="keyword">int</span> A[], <span class="keyword">int</span> left, <span class="keyword">int</span> right, <span class="keyword">int</span> x )</span> <span class="comment">// 递增</span></span></span><br><span class="line"><span class="function"></span>&#123;</span><br><span class="line">   	<span class="keyword">while</span>(left &lt; right) <span class="comment">// left 大于 right时意味着找到唯一位置</span></span><br><span class="line">    &#123;</span><br><span class="line">        mid = (left + right) / <span class="number">2</span>;</span><br><span class="line">        <span class="keyword">if</span>(A[mid] &gt;= x) right = mid;</span><br><span class="line">        <span class="keyword">else</span> left = mid + <span class="number">1</span>;</span><br><span class="line">    &#125;</span><br><span class="line">    <span class="keyword">return</span> left; <span class="comment">// 返回“夹”出的位置</span></span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<p><strong>🐖注意</strong>：这里x可能是找不到的，如果出现找不到的情况那么返回的下标将是数组最后一个元素的下一位，既n，所以传入的数组上届应该是n而不是n-1 ([0,n])</p>
+<blockquote>
+<p>*<em>④找出序列中第一个大于 x 的元素的位置 *</em></p>
+</blockquote>
+<p>Ⅰ.如果A[mid] &gt; x，说明一个大于x的位置在mid处或者在mid的左侧，令right = mid ,既缩短右子区间继续查找[left,mid]</p>
+<p>Ⅱ.如果A[mid] &lt;= x, 说明第一个大于x的位置 在mid的右侧，令left = mid +1 ，既缩短左子区间继续查找[mid+1，right] </p>
+<p>Ⅲ.如果中不存在x，则返回的结果将是<strong>假设序列中存在x，x应当在的位置</strong></p>
+<figure class="highlight c++"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br></pre></td><td class="code"><pre><span class="line"><span class="function"><span class="keyword">int</span> <span class="title">lower_bound</span><span class="params">(<span class="keyword">int</span> A[], <span class="keyword">int</span> left, <span class="keyword">int</span> right, <span class="keyword">int</span> x )</span> <span class="comment">// 递增</span></span></span><br><span class="line"><span class="function"></span>&#123;</span><br><span class="line">   	<span class="keyword">while</span>(left &lt; right) <span class="comment">// left 大于 right时意味着找到唯一位置</span></span><br><span class="line">    &#123;</span><br><span class="line">        mid = (left + right) / <span class="number">2</span>;</span><br><span class="line">        <span class="keyword">if</span> (A[mid] &gt; x) right = mid;</span><br><span class="line">        <span class="keyword">else</span> left = mid + <span class="number">1</span>;</span><br><span class="line">    &#125;</span><br><span class="line">    <span class="keyword">return</span> left; <span class="comment">// 返回“夹”出的位置</span></span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<p><strong>🐖注意</strong>：这里x可能是找不到的，如果出现找不到的情况那么返回的下标将是数组最后一个元素的下一位，既n，所以传入的数组上届应该是n而不是n-1 ([0,n])</p>
+<blockquote>
+<p> <strong>⑤寻找有序序列第一个满足某条件的元素的位置 的代码模板</strong></p>
+</blockquote>
+<p>某条件一定是从左到右先不满足，然后满足(若条件相反则对条件取反即可)</p>
+<figure class="highlight c++"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">//二分区间为左闭右闭，初值必须能覆盖解的所有值</span></span><br><span class="line"><span class="function"><span class="keyword">int</span> <span class="title">solve</span> <span class="params">(<span class="keyword">int</span> A[], <span class="keyword">int</span> left, <span class="keyword">int</span> right, <span class="keyword">int</span> x)</span></span></span><br><span class="line"><span class="function"></span>&#123;</span><br><span class="line">    <span class="keyword">while</span>(left &lt; right) </span><br><span class="line">    &#123;</span><br><span class="line">        <span class="keyword">if</span>(条件成立) right = mid;</span><br><span class="line">        <span class="keyword">else</span> left = mid + <span class="number">1</span>;</span><br><span class="line">    &#125;</span><br><span class="line">    <span class="keyword">return</span> left;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<p>💌<strong>注</strong>：如果想要寻找<strong>最后一个</strong>满足条件C的元素位置，可以求第一个满足条件!C的元素位置，然后将该位置减1即可。</p>
+
       
 
       
@@ -199,7 +690,7 @@
 
       
         <p class="article-more-link">
-          <a class="article-more-a" href="/2019/07/24/入门模拟-1/">展开全文 >></a>
+          <a class="article-more-a" href="/2019/08/14/二分/">展开全文 >></a>
         </p>
       
 
@@ -229,29 +720,37 @@
 
 
   
-    <article id="post-开-篇" class="article article-type-post  article-index" itemscope itemprop="blogPost">
+    <article id="post-PAT入门模拟-2" class="article article-type-post  article-index" itemscope itemprop="blogPost">
   <div class="article-inner">
     
       <header class="article-header">
         
   
     <h1 itemprop="name">
-      <a class="article-title" href="/2019/07/23/开-篇/">开篇</a>
+      <a class="article-title" href="/2019/08/04/PAT入门模拟-2/">PAT入门模拟-2</a>
     </h1>
   
 
         
-        <a href="/2019/07/23/开-篇/" class="archive-article-date">
-  	<time datetime="2019-07-23T06:00:00.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2019-07-23</time>
+        <a href="/2019/08/04/PAT入门模拟-2/" class="archive-article-date">
+  	<time datetime="2019-08-04T07:49:45.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2019-08-04</time>
 </a>
         
       </header>
     
     <div class="article-entry" itemprop="articleBody">
       
-        <p>​        你好！感谢你访问我的Blog！博主创建此博客的目的是为了记录从零（点五）开始学习计算机408考研的历程，距离考试还有大概一年半的时间，大家一起加油吧！耶耶耶~！</p>
-<p>​        （如果需要联系我可以发邮件给我！<a href="mailto:dengdeng-80@163.com" target="_blank" rel="noopener">dengdeng-80@163.com</a>）</p>
-
+        <p>PTA网址：<a href="https://pintia.cn/problem-sets/994805260223102976/problems/type/7" target="_blank" rel="noopener">https://pintia.cn/problem-sets/994805260223102976/problems/type/7</a></p>
+<p><strong>Basic 1041 1004 1028 1032</strong></p>
+<p><strong>1041 考试座位号</strong> </p>
+<p><strong>1004</strong> <strong>成绩排名</strong> </p>
+<p><strong>B1028 人口普查</strong></p>
+<p><strong>B1032 挖掘机技术哪家强</strong> </p>
+<p><strong>B1036 和奥巴马一起编程</strong> </p>
+<p><strong>B1027 打印沙漏</strong> </p>
+        
+          <a class="article-more-a" href="/2019/08/04/PAT入门模拟-2/#more">more >></a>
+        
       
 
       
@@ -264,7 +763,15 @@
 		<ul class="article-tag-list">
 			 
         		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color3">生活</a>
+        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color3">算法</a>
+        		</li>
+      		 
+        		<li class="article-tag-list-item">
+        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color3">学习</a>
+        		</li>
+      		 
+        		<li class="article-tag-list-item">
+        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color4">PAT</a>
         		</li>
       		
 		</ul>
@@ -274,7 +781,101 @@
 
       
         <p class="article-more-link">
-          <a class="article-more-a" href="/2019/07/23/开-篇/">展开全文 >></a>
+          <a class="article-more-a" href="/2019/08/04/PAT入门模拟-2/">展开全文 >></a>
+        </p>
+      
+
+      
+      <div class="clearfix"></div>
+    </div>
+  </div>
+</article>
+
+<aside class="wrap-side-operation">
+    <div class="mod-side-operation">
+        
+        <div class="jump-container" id="js-jump-container" style="display:none;">
+            <a href="javascript:void(0)" class="mod-side-operation__jump-to-top">
+                <i class="icon-font icon-back"></i>
+            </a>
+            <div id="js-jump-plan-container" class="jump-plan-container" style="top: -11px;">
+                <i class="icon-font icon-plane jump-plane"></i>
+            </div>
+        </div>
+        
+        
+    </div>
+</aside>
+
+
+
+
+  
+    <article id="post-PAT入门模拟-1" class="article article-type-post  article-index" itemscope itemprop="blogPost">
+  <div class="article-inner">
+    
+      <header class="article-header">
+        
+  
+    <h1 itemprop="name">
+      <a class="article-title" href="/2019/08/02/PAT入门模拟-1/">PAT入门模拟-1</a>
+    </h1>
+  
+
+        
+        <a href="/2019/08/02/PAT入门模拟-1/" class="archive-article-date">
+  	<time datetime="2019-08-02T11:42:55.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2019-08-02</time>
+</a>
+        
+      </header>
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+        <p><strong>PTA网址：</strong><a href="https://pintia.cn/problem-sets/994805260223102976/problems/type/7" target="_blank" rel="noopener">https://pintia.cn/problem-sets/994805260223102976/problems/type/7</a></p>
+<p><strong>Basic 1001 1011 1016 1026 1046 1008 1012 1018</strong></p>
+<p><strong>1001 害死人不偿命的(3n+1)猜想</strong> </p>
+<p><strong>1011</strong> <strong>A+B 和 C</strong> </p>
+<p><strong>B1016 部分A + B</strong></p>
+<p><strong>B1026 程序运行时间</strong> </p>
+<p><strong>B1046</strong>  <strong>划拳</strong></p>
+<p><strong>B1008 数组元素循环右移问题</strong></p>
+<p><strong>B1012 数字分类</strong></p>
+<p><strong>B 1018 锤子剪刀布</strong></p>
+<p><strong>B1010 一元多项式求导</strong></p>
+        
+          <a class="article-more-a" href="/2019/08/02/PAT入门模拟-1/#more">more >></a>
+        
+      
+
+      
+    </div>
+    <div class="article-info article-info-index">
+      
+      
+	<div class="article-tag tagcloud">
+		<i class="icon-price-tags icon"></i>
+		<ul class="article-tag-list">
+			 
+        		<li class="article-tag-list-item">
+        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color3">算法</a>
+        		</li>
+      		 
+        		<li class="article-tag-list-item">
+        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color3">学习</a>
+        		</li>
+      		 
+        		<li class="article-tag-list-item">
+        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color4">PAT</a>
+        		</li>
+      		
+		</ul>
+	</div>
+
+      
+
+      
+        <p class="article-more-link">
+          <a class="article-more-a" href="/2019/08/02/PAT入门模拟-1/">展开全文 >></a>
         </p>
       
 
@@ -306,7 +907,7 @@
   
   
     <nav id="page-nav">
-      <a class="extend prev" rel="prev" href="/page/3/">&laquo; Prev</a><a class="page-number" href="/">1</a><a class="page-number" href="/page/2/">2</a><a class="page-number" href="/page/3/">3</a><span class="page-number current">4</span>
+      <a class="extend prev" rel="prev" href="/page/3/">&laquo; Prev</a><a class="page-number" href="/">1</a><a class="page-number" href="/page/2/">2</a><a class="page-number" href="/page/3/">3</a><span class="page-number current">4</span><a class="page-number" href="/page/5/">5</a><a class="extend next" rel="next" href="/page/5/">Next &raquo;</a>
     </nav>
   
 
